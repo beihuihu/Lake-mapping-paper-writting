@@ -1,14 +1,18 @@
 A 10 m resolution global lake dataset based on Sentinel-2 MSI data and deep learning
 Beihui Hu1, and Lian Feng1
 
+Abstract
+
+  了解全球湖泊分布十分重要，但现有的全球湖泊数据集对小湖泊的覆盖不够全面，难以准确反映其空间分布。在这里，我们使用 2017年3月28日至2022年4月10日的Sentinel-2 MSI 数据和深度学习方法，制作了一个10m分辨率全球湖泊数据集 GLAKESplus。该数据集涵盖了全球 ~1200 万个面积> 0.005 km2的湖泊，总面积为 ~3.4×106 km2，提供了全球湖泊的平均面积边界及空间分布信息。结果表明，小湖泊（<1km2）数量占全球湖泊数量的98.3%，且广泛分布于人口稠密的洪泛平原及沿海地区，进一步凸显了小湖泊在全球生态系统中的重要性。相对于现有数据集，GLAKESplus具有更高的空间分辨率，能够更全面地捕捉小湖泊，能为相关研究提供更精确的数据支持。
+
 1 Introduction
 
 	湖泊和水库（以下简称 “湖泊”）在全球水文和生物地球化学水循环及碳循环中发挥着重要作用（Lehner & Döll, 2004; Verpoorter et al, 2016）。它们的作用与其几何特征密切相关(Messager et al., 2016).。由于其对气候变化和人类活动的敏感性，全球湖泊不断发生变化(Pi et al., 2022; Williamson et al., 2009)。掌握全球湖泊的空间分布和变化对相关的地球系统过程研究及水资源调控至关重要。
-	因为湖泊分布广泛，形态各异，数量庞大，全球湖泊制图存在着挑战。现有数据集中的GLWD、HydroLAKES，是由多个数据源编制而成的。这些数据集不能很好地体现全球湖泊分布，因其数据源没有统一的分辨率及制图时间。遥感因其覆盖面广、时效性强、信息量大的优势，已成为大范围湖泊观测的主要方法。粗分辨率卫星传感器如AVHRR卫星的AVHRR(空间分辨率1001m)及MODIS的Terra/Aqua（空间分辨率250m至1km仅适用于大湖泊的研究。中等分辨率卫星Landsat自2008年免费对公众开放后，被广泛应用于全球湖泊制图研究。如Verpoorter等处理了2000年左右Landsat7上的 ETM+传感器的图像制作了数据集GLOWABO，绘制了全球大于0.002 km2的湖泊。Sheng等利用2015年左右的Landsat8 OLI传感器 30m数据，计算NDWI水体指数，制作了Circa-2015数据集，提供大于0.004 km2的全球湖泊代表性水面积。因为地表水体形态多样，GLOWABO及Circa-2015可能存在错分及漏分误差，并且他们的制图数据仅为一个特定时期。
-	GSW产品是基于Landsat数据的地表水产品。Pekel等利用专家系统对每幅Landsat影像进行水分类，其获得的水概率密度产品很好地表现了地表水的分布。Pi等利用深度学习方法处理GSW水概率产品，对全球湖泊在1984至2019年的面积变化进行研究，揭示了了小湖泊的重要作用。Pi等的湖泊数据集GLAKES涵盖全球3.4 million个大于0.03 km2的湖泊，提供研究时段内的最大湖泊边界及分时段的加权面积。
-	尽管现有的基于Landsat的全球湖泊数据集的最小单元为0.002 km2，小湖泊的空间分布仍未得到准确掌握。尽管小湖泊对全球湖泊总面积的贡献较小，但其占湖泊总数量的主导地位。已有研究表明小湖泊是重要的内陆水域碳通量来源，其面积变化更加剧烈。因此，有必要制作一个覆盖更多小湖泊的全球湖泊数据集。而随着高分辨率卫星的投入使用，这一目标成为可能。相比较于昂贵的商业卫星（如SPOT卫星、QuickBird卫星），免费提供低至10米空间分辨率数据的Sentinel-2卫星在大范围湖泊监测中有更大的优势。目前，已有基于Sentinel-2的区域性湖泊观测研究，如…但全球湖泊10米分辨率湖泊制图所需的海量遥感数据对计算机存储及处理方法都有较高要求，在这方面还没有相关的研究。
-近年来出现的遥感云计算平台使海量遥感数据处理成为可能。其中，常见的Google Earth Engine平台提供了自2017年3月28日以来的Sentinel-2 L2A产品。利用GEE平台的预处理方法，能够高效处理全球卫星影像，并减少对本地存储的要求。此外，新兴的深度学习技术具有准确率高、速度快、自动化程度高的优点，在大范围遥感观测研究中有巨大优势。如Brandt等使用亚米级分辨率卫星影像和深度学习技术绘制了西部撒哈拉地区超过18亿株冠幅尺寸大于3m2的树。Pi等利用深度学习技术绘制了全球三百多万个大于0.3 km2的湖泊。深度学习模型不仅能学习地物的光谱特征，还能学习其几何特征。相较于传统的湖泊识别方法，其在区分湖泊与其他地表水体方面具有极大优势。
-	基于先前的研究，本研究的目的是利用Sentinel-2遥感数据及深度学习方法，制作一个10 m分辨率的全球湖泊数据集。具体的研究目的包括：1）训练一个适用于Sentinel-2全球湖泊制图的语义分割模型；2）对全球湖泊进行绘制，提供一个比现有数据集覆盖更多小湖泊，边界更精准的全球湖泊数据集；3）对全球湖泊分布进行分析，并将结果与其他数据集进行对比。
+	因为湖泊分布广泛，形态各异，数量庞大，全球湖泊制图存在着挑战。现有数据集中的GLWD、HydroLAKES，是由多个数据源编制而成的。这些数据集不能很好地体现全球湖泊分布，因其数据源没有统一的分辨率及制图时间。遥感因其覆盖面广、时效性强、信息量大的优势，已成为大范围湖泊观测的主要方法。粗分辨率卫星传感器如AVHRR卫星的AVHRR(空间分辨率1001m)及MODIS的Terra/Aqua（空间分辨率250m至1km仅适用于大湖泊的研究。中等分辨率卫星Landsat自2008年免费对公众开放后，被广泛应用于全球湖泊制图研究。如Verpoorter等处理了2000年左右Landsat7上的 ETM+传感器的图像制作了数据集GLOWABO，绘制了全球大于0.002 km2的湖泊。Sheng等利用2015年左右的Landsat8 OLI传感器 30m数据，计算NDWI水体指数，制作了Circa-2015数据集，提供大于0.004 km2的全球湖泊代表性水面积。然而，全球地表水体形态多样，GLOWABO及Circa-2015可能存在错分及漏分误差，他们的全球制图精度没有得到评估。
+	Pekel等利用专家系统对每幅Landsat影像的像素进行水分类，提供了GSWO产品，展示了水存在概率。Pi等利用深度学习方法处理GSW水概率产品，对全球湖泊在1984至2019年的面积变化进行研究，揭示了了小湖泊的重要作用。Pi等的湖泊数据集GLAKES涵盖全球3.4 million个大于0.03 km2的湖泊，提供研究时段内的最大湖泊边界及分时段的加权面积。
+	尽管现有的基于Landsat的全球湖泊数据集的最小单元为0.002 km2，小湖泊的空间分布仍未得到准确掌握。尽管小湖泊对全球湖泊总面积的贡献较小，但其占湖泊总数量的主导地位。已有研究表明小湖泊是重要的内陆水域碳通量来源，其面积变化更加剧烈。因此，有必要制作一个覆盖更多小湖泊的全球湖泊数据集。而随着高分辨率卫星的投入使用，这一目标成为可能。相比较于昂贵的商业卫星（如SPOT卫星、QuickBird卫星），免费提供低至10米空间分辨率数据的Sentinel-2卫星在大范围湖泊监测中有更大的优势。已有学者进行区域尺度的相关研究，如 Yang et al. 利用sentinel-2卫星数据对法国的地表水边界进行了月度估计。但全球湖泊10米分辨率湖泊制图所需的海量遥感数据对计算机存储及处理方法都有较高要求，在这方面还没有相关的研究。
+	近年来出现的遥感云计算平台使海量遥感数据处理变得容易。其中，常见的Google Earth Engine平台提供了自2017年3月28日以来的Sentinel-2 L2A产品。利用GEE平台的预处理方法，能够高效处理全球卫星影像，并减少对本地存储的要求。此外，新兴的深度学习技术具有准确率高、速度快、自动化程度高的优点，在大范围遥感观测研究中有巨大优势。如Brandt等使用亚米级分辨率卫星影像和深度学习技术绘制了西部撒哈拉地区超过18亿株冠幅尺寸大于3m2的树。GLAKES也是通过深度学习方法获得的。深度学习模型不仅能学习地物的光谱特征，还能学习其几何特征。相较于传统的湖泊识别方法，其在区分湖泊与其他地表水体方面具有极大优势。
+	基于先前的研究，本研究的目的是利用Sentinel-2遥感数据及深度学习方法，制作一个10 m分辨率的全球湖泊数据集。具体包括：1）训练一个适用于Sentinel-2全球湖泊制图的语义分割模型；2）对全球湖泊进行绘制，提供一个比现有数据集覆盖更多小湖泊，边界更精准的全球湖泊数据集；3）对全球湖泊分布进行分析，并将结果与其他数据集进行对比。
 
 2 Materials and methods
 
@@ -18,71 +22,68 @@ Fig. 1. Flowchart for developing the GLAKESplus dataset.
 
 2.1 Sentinel-2 and preprocessing
 
-	Sentinel-2是欧洲航天局( ESA )哥白尼计划的下的一个地球观测任务，由2015年发射的Sentinel-2A 及2017年发射的Sentinel-2B组成，重访周期为2~5天。Sentinel-2的B2(蓝光)、B3(绿光)、B4(红光)及B8 (近红外)波段空间分辨率为10米，可以展示精细的湖泊边界。其近红外波段（B11,B14）空间分辨率为20 m,其余波段空间分辨率为60 m。NDWI是一个常用的水体增强指数，其通过对绿光、红光波段的组合运算，抑制植被信息，增强水体信息。NDWI在Sentinel-2中的计算公式为NDWI=(B3-B8)/(B3+B8)。我们选择了NDWI波段及三个可见光波段（B2,3,4），一个短波红外波段B11波段（重采样至10 m）用于后续的湖泊制图。建成区的建筑与水体在NDWI波段易被混淆，但在短波红外波段有着显著差异。因此，纳入短波红外波段有利于对建成区湖泊的识别。我们在GEE上获得了2017年3月28日至2022年4月10日的所有云像素比例低于60%的Sentinel-2 L2A影像，并进行了若干预处理操作。
+	Sentinel-2是欧洲航天局( ESA )哥白尼计划的下的一个地球观测任务，由2015年发射的Sentinel-2A 及2017年发射的Sentinel-2B组成，重访周期为2~5天。Sentinel-2的B2(蓝光)、B3(绿光)、B4(红光)及B8 (近红外)波段空间分辨率为10米，可以展示精细的湖泊边界。其近红外波段（B11,B12）空间分辨率为20 m,其余波段空间分辨率为60 m。我们选择了三个可见光波段（B2,3,4），一个短波红外波段B11波段（重采样至10 m）及NDWI指数用于后续的湖泊制图。NDWI是一个常用的水体增强指数，在Sentinel-2中的计算公式为NDWI=(B3-B8)/(B3+B8)。NDWI能够抑制植被信息，增强水体信息，但在区分水体和不透水面方面有限缺陷，而短波红外波段的信息能够弥补这个缺陷。我们在GEE上获得了2017年3月28日至2022年4月10日的所有云像素比例低于60%的Sentinel-2 L2A影像，并进行了若干预处理操作。
 	首先，哨兵云概率产品(S2 Cloud Probability, S2Cloudless)被用去云像素。S2Cloudless是使用 sentinel2-cloud-detector 库创建的，其提供了每幅影像的单个像素的云概率。根据经验，对所有云概率高于50%的像素进行掩膜操作，并将近红外波段的暗像元与云投影取交集，去除云阴影像素。并且，部分冰雪像素被通过场景分类图层 (Scene Classification Layer, SCL)去除。场景分类图层是L2A产品的一个波段，提供对云、云阴影、冰雪、水体的初步的分类。随后，我们计算了每幅影像的NDWI指数并将所有影像进行逐像素平均，获得一个平均影像。该操作能获得湖泊的平均边界，减少湖泊季节性变化的影响，同时消除云残留、藻华、泥沙等因素的干扰。最终，经过处理的近10TB 的Sentinl-2平均影像被分片下载至本地计算机，作为后续湖泊识别的源数据。
 
-2.2 Mapping global lakes using deep learning
+2.2 Sample preparation
 
-	深度学习指通过多层神经网络来自动学习和提取输入数据中的复杂特征，已经成为过去几十年人工智能领域的主要驱动及过程(Brandt et al., 2020)。深度学习领域出现了一系列功能强大的模型，其中 U-Net 模型及其变体在语义分割领域得到了广泛应用。U-Net是一种基于全卷积神经网络的语义分割模型，由主干特征提取网络、加强特征网络与预测网络构成。网络左侧可视为一个编码器 (Encoder)，右侧可视为一个解码器 (Decoder)。通过编码与解码，U-Net能将深层与浅层特征进行融合，具有参数少、计算快、应用性强的特点。结合重叠-切片 (overlap-tile) 策略，U-Net可对任意大的图像进行无缝分割，已被广泛应用于遥感领域。如Brandt等调整了U-Net模型，将其应用于基于高分辨率影像的树木识别。随后，Pi对Brandt等的模型进行调整，根据空间分辨率为 30 米的 GSW 数据，获得了良好效果。因此，我们在Pi等的代码上进行细微调整，将U-Net应用于基于Sentinel-2影像的全球湖泊10 m分辨率制图。
+	我们在全球范围选择具有代表性的样本区域，用于制作模型训练所需的标签。针对每一个样本区域，我们通过基于NDWI波段的阈值分割法获得初步标签，阈值由人工确定。随后，非常耗时的人工修改被应用，以去除初步标签中的错分、漏分误差，获得最终标签。在Sentinel-2影像中，湖泊的NDWI值通常比背景高，在RGB、SWIR波段反射率较低，形状偏圆形，表面平坦，易于和背景区分。易于区分的区域被我们标记成（1）普通区域（Normal Regions, NR）；此外，我们还观察到几种需要仔细辨认的区域，分别为（2）河边湖泊 (Alongside Rivers, AR)，地表水形态多样，需要仔细区分河流与湖泊（尤其是与河流形态相似的牛轭湖）；（3）建成区域（Built-up Regions, BR），建筑及其阴影在NDWI中易被误判为湖泊，需要结合其他波段进行剔除；（4）冰川湖(Ice Lakes, IL)，冰川在NDWI波段及SWIR波段的特征与湖泊相似，需要仔细区分冰川湖的边界；（5）盐湖（Salt Lakes,SL），盐湖通常分布于内陆干旱和办干旱地区，其NDWI绝对值偏低，在其它几个波段反射率较高；最终，我们选择并绘制了799个的样本标签，并按照分层随机采样方法，将其划分为训练（60％），验证（20％）和测试（20％）集。样本区域的空间、大小分布如Fig. 3所示。需要指出，样本区域的类别为该区域的主要特征。
 
-2.2.1 Sample preparation
+Fig. 2. 样本区域的空间、尺寸分布及统计。（a）样本的空间分布，不同类别的样本区域显示为不同的标记，绿色、橙色和蓝色则分别代表训练集、验证集和测试集。（b）样本区域的尺寸分布，样本区域被划分至对数空间上27个等间距的bins中，The spational distribution (a) and size range (b) of the sample regions, which divided into three subsets: training set (blue), validation set (orange), test set (green), the different markets represent 5 region types. (c) Total count and area of the sample regions in different region types.
 
-	我们在全球范围选择具有代表性的样本区域，用于制作训练U-Net模型所需的标签。针对每一个样本区域，我们通过基于NDWI波段的阈值分割法获得初步标签，阈值由人工确定。随后，非常耗时的人工修改被应用，以去除初步标签中的错分、漏分误差，获得最终标签。在Sentinel-2影像中，湖泊的NDWI值通常比背景高，在RGB、SWIR波段反射率较低，形状偏圆形，表面平坦，易于和背景区分。易于区分的区域被我们标记成（1）普通区域（Normal Regions, NR）；此外，我们还观察到几种需要仔细辨认的区域，分别为（2）河边湖泊 (Alongside Rivers, AR)，分布有与河流形态相似的牛轭湖，需要仔细区分河流与湖泊；（3）建成区域（Built-up Regions, BR），建筑及其阴影在NDWI中易被误判为湖泊，需要结合其他波段进行剔除；（4）冰川湖(Ice Lakes, IL)，冰川在NDWI波段及SWIR波段的特征与湖泊相似，需要仔细区分冰川湖的边界；（5）盐湖（Salt Lakes,SL），盐湖通常分布于内陆干旱和办干旱地区，NDWI分割的阈值偏低，在其它几个波段反射率较高；最终，我们选择并绘制了799个的样本标签，并按照分层随机采样方法，将其划分为训练（60％），验证（20％）和测试（20％）集。样本区域的空间、大小分布如Fig. 3所示，应当指出的是，样本类型指的是这个区域中的主要水文特征。
+2.3 Model application
 
-Fig. 2. The spational distribution (a) and size range (b) of the sample regions, which divided into three subsets: training set (sky blue), validation set (orange), test set (green), the different markets represent 5 region types. (c) Total count and area of the sample regions in different region types.
-
-2.2.2 Model application
-
-	训练深度学习网络的过程，就是最小化损失函数，使模型预测结果与真实标签尽可能接近的过程。我们采用了与Pi等一致的损失函数和优化算法。训练过程中，模型在训练集上的梯度被计算，从而依据优化算法更新模型参数。验证集则被用于保存最佳模型（具体的，我们保留在验证集上loss error最小的模型）。由于GPU内存的限制，模型输入被设定为576×576×5。由于样本区域对模型输入来说过大，因此一个随机采样方法被用于从训练集、测试集中生成与模型输入大小一致的patches。每个样本区域被随机选中的概率与其大小成正比，以避免对大样本的欠采样和对小样本的过采样；此外，early stopping策略被用来避免模型的过拟合，当连续50个epoch的val loss没有降低时，训练被提前终止。训练的具体的超参数设置如Supplementart Table 1所示。 
+	深度学习指通过多层神经网络来自动学习和提取输入数据中的复杂特征，已经成为过去几十年人工智能领域的主要驱动及过程(Brandt et al., 2020)。深度学习领域出现了一系列功能强大的模型，其中 U-Net 模型及其变体在语义分割领域得到了广泛应用。U-Net是一种基于全卷积神经网络的语义分割模型。网络左侧可视为一个编码器 (Encoder)，能够提取 hierarchical features。网络右侧可视为一个解码器 (Decoder)，能够通过上采样重建空间信息。在编码与解码过程中，U-Net通过Skip connections将深层与浅层特征进行融合，提高语义分割精度。结合重叠-切片 (overlap-tile) 策略，U-Net可对任意大的图像进行无缝分割。Pi等在先前研究基础上，将U-Net模型运用到全球湖泊制图领域，获得良好效果。因此，我们对Pi等的代码上进行细微调整，将U-Net应用于基于Sentinel-2影像的全球湖泊10 m分辨率制图。
+	训练深度学习网络的过程，本质上是通过最小化损失函数，使模型预测结果尽可能接近真实标签。我们采用了与Pi等一致的损失函数和优化算法。训练过程中，模型在训练集上的梯度被计算，从而依据优化算法更新模型参数。验证集则被用于保存最佳模型（具体的，我们保留在验证集上loss error最小的模型）。由于GPU内存的限制，模型输入被设定为576×576×5。由于样本区域对模型输入来说过大，因此一个随机采样方法被用于从训练集、测试集中生成与模型输入大小一致的patches。每个样本区域被随机选中的概率与其大小成正比，以避免对大样本的欠采样和对小样本的过采样；此外，early stopping策略被用来避免模型的过拟合，当连续50个epoch的val loss没有降低时，训练被提前终止。训练的具体的超参数设置如Supplementart Table 1所示。 
 	获得最终模型后，我们对全球湖泊进行预测，获得了初步预测结果。由于全球格网影像过大，其被从左到右，从上到下移动的sliding window裁剪为与模型输入一致的patchs，输入模型进行预测。每个patch的输出结果被拼接成整幅影像的结果。由于单个patch边缘上下文信息不足，预测准确性较低，其边缘100像素宽度的预测值被舍弃，进而提高湖泊边界的准确性。
 
-2.2.3 Post processing
+2.4 Post processing
 
-	结合多源辅助数据集，几步后处理操作被应用。受限于相对小的输入大小，深度学习模型难以区分局部特征与大湖泊类似的海洋。因此，我们使用OSM数据集对初步预测结果进行掩膜，以去除海洋残留。OSM是一个国际合作，旨在通过志愿者努力创建免费的地图数据源(Goodchild, 2007)；其Coastline data sets（包括代表全球land area的land polygon及代表海洋的water polygon）可以从 https://osmdata.openstreetmap.de/data/获得。 首先，所有不在Land polygon海洋像素被去除。随后，所有与ocean polygon相交的polygon被进一步删除，以去除OSM未完全覆盖的海洋残留。同时，与海洋相连的泻湖也被删除。泻湖没有被纳入我们的考虑范围，因其特性与内陆湖泊十分不同。尽管深度学习模型能很好地区分湖泊与小河流，其在区分湖泊与大河宽的河流方面同样由于相对小的输入大小而存在局限性。大河宽的河流在全球河流的数量占比很低，且已有诸多大河宽的河流数据集，如Global River Widths from Landsat (GRWL)数据集。结合GRWL数据集及OSM的河流图层，能够有效去除结果中的河流残留。OSM的河流、水库数据由OSM的全球数据（https://planet.openstreetmap.org/）中提取。本文参考(Pi et al., 2022)的方法进行河流掩膜。首先，我们利用水库数据集（OSM的水库数据及GeoDAR数据集）保留了河流上的水库。此外，所有中心点位于river layer中的像素被初步去除。随后，每一个polygon在初步河流掩膜前后的面积比值被计算，计算公式如下所示：
-								█(Area Ratio=(Area_(after mask))/(Area_(before mask) )#(1))
-	当Area Ratio越接近1，表明这个polygon越可能是与河流相连的湖泊，当AR接近0，表明其更可能是河流残留。根据目视检查，我们保留了与GLAKES相交且Area Ratio大于0.8的polygon (Fig. 3a)，从而保留与河流相连的湖泊（包括水库数据集未包含的水库）。不与GLAKES相交且 Area Ratio 小于0.8 的polygon被整个删除，因其基本上是河流残留(Fig. 3d)。其他情况下，初步掩膜后的结果被保留（Fig. 3b, c）。我们对各大流域进行了大量人工检查，以减少误差。
+	几步后处理操作被应用于初步结果。受限于相对小的输入大小，深度学习模型难以区分局部特征与大湖泊类似的海洋及大河宽河流。因此，我们利用现有数据集来去除海洋、河流残留。
+	OSM(Goodchild, 2007)的Coastline data sets被用于去除海洋残留。可以从 https://osmdata.openstreetmap.de/data/获得。 首先，所有不在Land polygon海洋像素被去除。随后，所有与ocean polygon相交的polygon被进一步删除，以去除OSM未完全覆盖的海洋残留。同时，与海洋相连的泻湖也被删除。泻湖没有被纳入我们的考虑范围，因其特性与内陆湖泊十分不同。
+	我们采纳并修改了Pi等的方法，来去除河流残留。首先，我们利用Global River Widths from Landsat (GRWL)数据集及OSM的河流图层，去除初步结果中的河流像素。随后，我们保留了与水库数据集（OSM的水库数据及GeoDAR数据集）相交的水库polygon。OSM的河流、水库数据由OSM的全球数据（https://planet.openstreetmap.org/）中提取。随后，我们利用GLAKES数据集及每一个polygon的area ratio来改进河流掩膜结果。AR的计算公式为(Area Ratio=(Area_(after mask))/(Area_(before mask) )，其中Area_(before mask)和Area_(after mask)分别代表这个polygon在河流掩膜前后的面积。当Area Ratio越接近1，表明这个polygon越可能是与河流相连的湖泊，当AR接近0，表明其更可能是河流残留。具体的，与GLAKES相交且Area Ratio大于0.8的polygon (Fig. 3a)，从而保留与河流相连的湖泊。不与GLAKES相交且 Area Ratio 小于0.8 的polygon被整个删除，因其基本上是河流残留(Fig. 3d)。其他情况下，初步掩膜后的结果被保留（Fig. 3b, c）。随后我们进行了大量人工检查和修改，最终完成河流掩膜。
 
 Fig. 3. Post-processing of river mask and the corresponding results. (a) Target polygons intersect with GLAKES with an area ratio ≥0.8; (b) Targets polygon not intersect with GLAKES with an area ratio ≥0.8; (c) Targets polygon intersect with GLAKES with an area ratio <0.8; (d) Targets polygon not intersect with GLAKES with an area ratio <0.8.
 
-	受限于底图的分辨率，模型的预测精度随湖泊的减小而降低。基于测试集的精度评价结果，我们设定最小湖泊面积阈值 ，删除了所有小于阈值的polygon；
-	经过以上操作，初步预测结果中的错分误差被基本消除。受限于输入大小，深度学习模型难以分辨大湖泊类似河流的局部特征，从而导致部分大湖泊存在漏分现象。此外，深度学习模型难以从平均影像中全面捕捉干旱区的湖泊。为了获得更全面的湖泊数据集，我们进一步进行了湖泊补全操作，利用GLAKES和Circa-2015湖泊数据集补全缺漏的湖泊。GLAKES提供了1984~2019年全球的最大湖泊面积矢量文件，适用于大湖泊补全。Circa-2015提供了2015年左右的全球代表性水面积已被证明对大洋洲高度动态的湖泊的良好捕捉 (Sheng et al., 2016)，可以补充干旱区湖泊，其数据从PLD数据集中获得。我们利用干旱指数数据集 (Zomer et al., 2022)定义了干旱区范围（Arid Index<0.2）。
-首先，我们对GLAKES数据集进行了处理，以去除其中因不全面的洪泛平原定义而包含的洪泛平原。我们利用SHIFT数据集 (Zheng et al., 2024) 对GLAKES非干旱区的湖泊进行洪泛平原掩膜。SHIFT数据集是一个基于DEM映射的90 m分辨率的全球地貌洪泛区，比现有的洪泛区数据更全面。本文使用和Pi等一致的30% occurrence阈值去除GLAKES湖泊包含的洪泛平原，获得良好效果。更新的洪泛平原掩膜操作不仅有效地去除了GLAKES中错分的洪泛平原，使连片的湖泊群得以分离 (Fig. 4a, b), 也有效去除了常分布于洪泛平原中的因季节性蓄水而被错分为湖泊的水稻田 (Fig. 4c, d)。
+	我们设定最小湖泊面积阈值为0.005km2 ，删除了所有小于阈值的polygon；经以上操作，初步预测结果中的错分误差被基本消除，但初步结果仍存在一些漏分误差。受限于输入大小，部分大湖泊的局部因特征与河流相似而被模型遗漏。此外，在Sentinel-2平均底图中，干旱区湖泊因较高的地表反射率易被模型误认为陆地。因此，我们利用GLAKES数据集和PLD数据集进行湖泊补全。GLAKES已被证明在全球大湖泊绘制上的准确性，其提供的多年最大湖泊边界覆盖全面，适用于大湖泊补全。PLD是一个整合了多个数据集的全球湖泊数据集，覆盖的最小湖泊面积为0.01km2。其主要数据源Circa-2015提供了2015年左右的全球代表性水面积，已被证明对大洋洲高度动态的湖泊的良好捕捉 (Sheng et al., 2016)。因此，PLD数据集被用于干旱区湖泊补全。我们定义的干旱区指Arid Index<0.2的区域，利用干旱指数数据集 (Zomer et al., 2022)获得。
+	合并前，我们对GLAKES数据集进行了处理，以去除其中因不全面的洪泛平原定义而包含的错分误差。SHIFT数据集是一个基于DEM映射的90 m分辨率的全球地貌洪泛区，比现有的洪泛区数据更全面。我们利用30%occurren阈值对GLAKES在SHIFT数据集 (Zheng et al., 2024) 内的非干旱区的湖泊进行掩膜。更新的洪泛平原掩膜操作不仅有效地去除了GLAKES中错分的洪泛平原，使连片的湖泊群得以分离 (Fig. 4a, b), 也有效去除了常分布于洪泛平原中的因季节性蓄水而被错分为湖泊的水稻田 (Fig. 4c, d)。
 
 Fig. 4. Comparsion of GLAKES before and after applying the flood mask. 
 
-	最终，经洪水掩膜的GLAKES数据集中大于1 km2的自然湖泊及所有水库，及66627个位于干旱区中的面积大于0.01 km2的Circa-2015湖泊，被合并至初步预测结果中。经过大量人工检查和修改，得到了最终预测结果GLAKESplus数据集。
+	最终，经洪水掩膜的GLAKES数据集中大于1 km2的自然湖泊及所有水库，及所有位于干旱区中的PLD湖泊，被合并至初步预测结果中。经过大量人工检查和修改，得到了最终预测结果GLAKESplus数据集。
 
 3 Results
 3.1 Accuracy assessments 
 
-	158个样本区域组成的独立测试集，被用于对模型的评估。我们使用的评价指标包含Recall, Precision及IoU。Recall是正确湖泊预测占真实湖泊标签的比例，precision是正确湖泊预测占所有湖泊预测的比例；F1 Score则是Recall和Precision的harmonic average，接近这两个数字的最差值；IoU代表正确样本占标签与预测的并集的比例。因为这是二分类问题，我们没有使用mIoU,并且，我们没有使用overall accurracy，以避免大量正确的负样本（即被正确分类为非湖泊）影响精度评价结果。首先，我们利用顺序采样方法从测试集中获取2424个576×576大小的patches，进行了patches尺度的分类别精度评价（Table 2）。总体上，模型表现出较好的结果，IoU达到87.5，其他指标高于92.7。在不同区域类别上，模型表现稍有差异。在region AR上，由于河流残渣的存在（Supplementary Figure 1c）,模型的 precision稍低，为89.77（Table 2）。通过河流掩膜操作有效去除河流残留，模型在测试集上的表现得到提高（Table 3）。在region  SL上，模型的recall仅72.71%（Table 2），对盐湖有一定的漏分（Supplementary Figure 1f）。盐湖占全球湖泊的数量较少，多分布于干旱区，能够通过lake completion 操作补全。
+	158个样本区域组成的独立测试集，被用于精度评估。我们使用的评价指标包含Recall, Precision，F1score及IoU。Recall是正确湖泊预测占真实湖泊标签的比例，precision是正确湖泊预测占所有湖泊预测的比例；F1 Score则是Recall和Precision的harmonic average，接近这两个数字的最差值；IoU为正确湖泊预测占湖泊标签与湖泊预测的并集的比例。因为非湖泊标签占标签的主导，我们没有使用mIoU和overall accurracy，避免大量正确非湖泊预测影响精度评价结果。首先，我们评估了模型在patch尺度上的表现。共有2424个576×576大小的patches依据顺序采样方法从测试集中获取，并被用于分类别精度评价（Table 1）。总体上，模型表现出较好的结果，IoU达到87.5，其他指标高于92.7。在不同区域类别上，模型表现稍有差异。在region AR上,模型的 precision及IoU偏低（分别为89.77%及84.28%，Table 1），模型存在对大河流的错分（Supplementary Figure 1c）。在region  SL上，模型的recall及IoU偏低（分别为72.71%及69.80%，Table 1），模型存在对盐湖的漏分（Supplementary Figure 1f）。将patch尺度的预测结果进行合并后，我们进行了河流掩膜，并进行了精度评价（Table 2）。河流掩膜操作使precision提高了1.77%，recall略微降低0.1%。湖泊尺度上的精度评估结果（Figure 5）表明，正确湖泊预测与湖泊标签及所有湖泊预测都表现出强相关性，R方都是0.98，斜率大于0.92（Fig. 5a）。河流掩膜操作去除的预测值（图标为灰色）真实湖泊预测面积趋近0（Fig. 5a）。随着尺度减小，正确湖泊预测面积与标签的相关度降低（Fig. 5a），不同尺寸组中标签的平均召回率及预测值的平均准确性也在减小（Fig. 5b）。
 
 Table 1 Accuracy assessments of our developed deep-learning algorithm at patch level with different region type.
 
 Table 2 The improvement of river mask operate in test regions
 
-	在lake-entity上，正确湖泊分类与标签及所有湖泊预测皆表现出很高的相关性，R方都是0.98，斜率大于0.92（Fig. 5a）。被河流掩膜操作去除的预测值图标为灰色，其真实湖泊预测值趋近0，表明了河流掩膜操作的有效性。随着尺度变小，正确湖泊分类与标签的相关度降低（Fig. 5a），且不同尺寸组中标签的平均召回率及预测值的平均准确性在减小（Fig. 5b）。因此，我们选择0.005 km2作为数据集的最小湖泊尺寸，有效减少了误差。
 
-Fig. 5. Validation in lake-entity of the deep-learning algorithm. (a) The Area of each label and its corresponding true predicted area. (b) The Area of each label and its corresponding true predicted area. (c) The mean recall of labels and mean precision of predicted polygons in different lake size groups. 
+Fig. 5. Validation in lake-entity of the deep-learning algorithm. (a) The distribution of true predicted area to each labelled lake and each predicted lake. labelled lake in different regions are shown in different marker. Predicted lakes that be distinguished to river residuals are shown in grey color. (c) The mean recall of labelled lakes and mean precision of predicted lakes in different lake size groups. 
 
 3.2 Comparison with other global lake datasets
 
-	我们将GLAKESplus与GLAKES、PLD进行比较，从而了解GLAKESplus在描绘全球湖泊分布上的优势与劣势。我们首先将三个数据集的湖泊按大小进行分组，统计湖泊总数及总面积，结果如Fig. 6所示。大于10000 km2的湖泊中，三个数据集数量一致 (Fig. 6a)，而PLD的总面积稍小于GLAKESplus及GLAKES(Fig. 7b)，主要由咸海的差异导致。其余湖泊组中，GLAKESplus的湖泊总数量皆高于另外两个数据集，差距随尺寸变小而增加。由于数据分辨率的提高，GLAKESplus 能绘制出更多的小湖泊 (Fig. 7a)，在小湖泊绘制方面有显著优势。GLAKESplus的湖泊总面积则因湖泊补全操作(Fig. 7b)及新增的湖泊，皆高于另外两个数据集。在大于1 km2的湖泊中，GLAKES的湖泊数量及面积高于PLD。这是因为PLD主要数据来源为Circa-2015（提供2015年左右的湖泊平均水面积），而GLAKES提供近40年的最大湖泊边界，能绘制出更多的季节性湖泊及2015年时干涸的湖泊。在小湖泊（<1 km2）上，GLAKES湖泊总数量及面积皆最少，因其仅覆盖大于0.03 km2 的湖泊，且在小湖泊上有一定的漏分误差(Pi et al., 2022)。
+	我们将GLAKESplus与GLAKES、PLD进行比较，从而了解其在描绘全球湖泊分布上的优势与劣势。我们首先将三个数据集的湖泊按大小进行分组，分析湖泊总数及总面积差异，结果如Fig. 6所示。大于10000 km2的湖泊中，三个数据集总数量和总面积相差不大(Fig. 6)，GLAKESplus与PLD的面积差异在于咸海。其余湖泊组中，GLAKESplus的湖泊总数量及总面积皆高于另外两个数据集 (Fig. 7a)。GLAKESplus在0.01~1km2的湖泊数量比PLD多出37%，并绘制出额外的390万个小于0.01km2的湖泊。区域尺度的对比进一步体现了3个数据集的差异。GLAKESplus的湖泊边界更精细，能绘制出更多的池塘（如中国长江流域，Fig. 7a）。PLD未考虑池塘，存在错分细长河流的残留。经湖泊补全操作，GLAKESplus的盐湖面积更加地全面（Fig. 7b）。在部分地区，如洪泛平原（Fig. 7c）及阿根廷东部（Fig. 7d），GLAKESplus的湖泊预测少于GLAKES及PLD，但GLAKESplus与Sentinel-2底图较为一致。
 
-Fig 6. Comparisons among GLAKESplus, GLAKES and PLD in logarithmic space.
+Fig 6. Comparisons of lake count and total area among GLAKESplus, GLAKES and PLD in different lake size groups. 值得注意的是，GLAKES最小的湖泊面积为0.03km2，PLD的最小湖泊面积为0.01km2.。
 
 Fig. 7. Regional comparison among GLAKESplus , GLAKES and PLD. (a) Ponds in southeast China. (b) The Uyuni Salt Flat at the southern end of the South American Plateau. (c) Lakes by river. (d) Seasonal lakes in eastern Argentina. For (a-b), the left figures show the NDWI basemap and lake extend of GLAKES and PLD, the right figures show the RGB basemap and lake extend of GLAKESplus.
 
-	我们进一步分析了PLD与GLAKESplus在空间上的分布差异（Fig. 9）。在大于0.1 km2 的湖泊上，二者沿经度、纬度的面积分布没有较大差异，除PLD的湖泊总面积在60°E及45°N附近因咸海的干涸而偏低（Fig. 9a）。二者的湖泊总数量沿经纬度分布较为一致，GLAKESplus在120°E左右数量更多。在小于0.1 km2的湖泊上，GLAKESplus的总数量及总面积显著高于PLD (Fig. 9a, b, d, e)，不仅多绘制了小于0.01 km2的湖泊，也多绘制了0.01~0.1 km2的湖泊 。由于PLD没有考虑养殖鱼塘(Wang et al., 2023)，其在中国长江流域、印度东部及东南亚地区小湖泊显著少于GLAKESplus (Fig. 8c)。有少部分区域，PLD的湖泊数量、面积高于GLAKESplus。如部分流域地区 (Fig. 9c，Fig. 8c)，湖泊因季节性变化难以在多年平均影像上被模型捕捉到，并且部分牛轭湖因类似河流而被GLAKESplus忽略。此外，在干旱区边界未覆盖的一些地区，如阿根廷东部，湖泊因气候干旱而逐渐干涸，使得GLAKESplus的湖泊数量、面积比PLD低 (Fig. 9c,Fig. 8d)。但全球大部分地区，GLAKESplus都因其湖泊绘制的全面性而存在显著优势。
+	我们进一步分析了PLD与GLAKESplus在空间格网内的分布差异（Supplementary Figure 2）。在大于0.1 km2 的湖泊上，二者沿经纬度的面积、数量分布没有较大差异，在小于0.1 km2 的湖泊上，GLAKESplus的总数量及总面积皆高于PLD (Fig. 9a, b, d, e)。在0.01~0.1 km2尺度上，除少部分区域（如阿根廷东部及xx流域），GLAKESplus的总湖泊及总面积皆高于PLD，尤其在中国长江流域、印度东部及东南亚地区 (Fig. 8c)。
 
 3.3 Global lake abundance and distribution 
 
-	GLAKESplus囊括了~12 million个湖泊，总面积约3.4×106 km2。由于数据分辨率的提升及多波段的引入，GLAKESplus在小湖泊上的准确描绘有极大优势，更准确地反应了全球湖泊的分布。我们将湖泊分为small(<1 km2), medium (1~100 km2) and large (>100 km2)，可知全球湖泊面积由大湖泊占主导，贡献了56.1%的湖泊总面积，而小湖泊仅贡献了17.8% (Fig. 6a)。在数量上，全球湖泊则是由小湖泊主导，占据了98.3%(Fig. 6b)。Pi等指出小湖泊主导了过去四十年的湖泊变换，Williamson等指出小湖泊的温室气体排放巨大，说明了小湖泊的重要性。GLAKESplus提供了近4 million个极小湖泊（<0.01 km2）的边界信息，贡献了全球湖泊数量的32.6%，减小了全球湖泊制图在小湖泊上的不确定性。在空间分布上，全球湖泊的49%或湖泊总面积的30%位于57°N以北的高纬度地区，主要分布在加拿大地盾、斯堪的纳维亚地区及西西伯利亚平原地区 (Fig. 6a)。这些地区在末次冰河时期冰川活动盛行，受更新世期间的冰川侵蚀作用形成了分布广泛的湖泊群。在57°N以南地区，湖泊数量逐渐减少，而直至36°N，湖泊面积没有显著减少，因为此处存在多个大湖（里海、五大湖、贝加尔湖、巴尔喀什湖，贡献了全球18%的湖泊总面积）(Fig. 6c)。在30°N、22°N附近，存在湖泊数量的小高峰(Fig. 6c)，主要由北美洲密西西比平原及长江中下游平原的小湖泊所贡献 (Fig. 6b)。热带地区湖泊数量及总面积都较少，但仍有几个密集分布区域。中国南方的沿海地区、柬埔寨及印度东部沿海地区，分布有大量的养殖鱼塘(Fig. 6b)。这些小湖泊对总湖泊面积的贡献不大，但分布于人口稠密地区，与人类的生产生活息息相关，十分的重要。南美洲亚马逊河流域及非洲的东非大裂谷有一些大湖泊，使得纬度剖面总面积在1~5°S之间存在一个小峰值。在经度剖面上，西半球的湖泊总面积、数量由加拿大地盾地区的密集湖泊主导；而东半球湖泊的总面积与数量的峰值不完全对应，湖泊面积由29~35°E的东非大裂谷湖泊及49~53°E的里海主导，湖泊数量则在66~120°E之间存在多个峰值(Fig. 6d)。
+	GLAKESplus囊括了~12 million个面积大于0.005km2的湖泊，总面积约3.4×106 km2。。湖泊被分为small(<1 km2), medium (1~100 km2) and large (>100 km2)来进行分析。同先前研究一致，全球湖泊面积由大湖泊占主导，贡献了56.1%的湖泊总面积，而小湖泊仅贡献了17.8% (Fig. 6a)。在数量上，全球湖泊由小湖泊主导，占据了98.3%(Fig. 6b)。小湖泊中，小于0.01 km2的湖泊贡献了全球湖泊数量的32.6%。在空间分布上，全球湖泊的49%或湖泊总面积的30%位于57°N以北的高纬度地区，主要分布在加拿大地盾、斯堪的纳维亚地区及西西伯利亚平原地区 (Fig. 6a)。在57°N以南地区，湖泊数量逐渐减少，而湖泊面积直至36°N开始减少。在30°N、22°N附近，存在湖泊数量的小高峰(Fig. 6c)，主要由北美洲密西西比平原及长江中下游平原的小湖泊所贡献 (Fig. 6b)。热带地区湖泊数量及总面积都较少，但仍有几个密集分布区域，如中国南方沿海地区、柬埔寨及印度东部沿海地区(Fig. 6b)。南美洲亚马逊河流域及非洲的东非大裂谷存在一些大湖泊，使得纬度剖面总面积在1~5°S之间存在一个小峰值。在经度剖面上，西半球的湖泊总面积、数量由加拿大地盾地区的密集湖泊主导；东半球湖泊的总面积与数量的峰值不完全对应，湖泊面积由29~35°E的东非大裂谷湖泊及49~53°E的里海主导，湖泊数量则在66~120°E之间存在多个峰值(Fig. 6d)。
 
 Fig. 6. Spational distribution of GLAKESplus. (a) Lake area density (total lake area/grid area). (b) Lake count per 1°×1° grid cell.  
 
 4 Discussion and conclusion
-相较现有研究，GLAKESplus不仅提供了更精细的湖泊几何边界，也对小湖泊的捕捉更加全面，有助于内陆湖泊碳通量的准确评估，能为气候变化、内陆水域的生物地球化学研究提供数据支持，对全球水资源保护有重要意义
+基于深度学习方法和sentinel-2卫星数据，我们制作了一个1全球0m分辨率湖泊数据集GLAKESplus。精度评价结果表明，我们的深度学习方法有较高的准确性（recall、precision及F1 score都大于92.7%）。然而，模型在不同区域的表现稍有不同。模型在区分大河宽河流与湖泊之间存在困难，但河流残渣通过后处理操作被有效去除（precision提升了1.77%）。模型在盐湖区域也有较低的召回率，可能是因为盐湖独特是光谱特征。后处理操作的湖泊补全能够补全一部分漏分的盐湖。湖泊尺度的精度评价结果表明，小于0.005km2的湖泊的平均召回率和平均准确性低于85%，删除小于0.005km2的结果有助于提高结果的准确性。GLAKESplus提供了一个全面的湖泊数据集，包含约12 million个面积大于0.005km2的湖泊，总面积达3.4×106 km2。其中，小湖泊（<1 km2）占全球湖泊数量的98.3%，大湖泊则贡献了56.1%的全球湖泊面积。这一分布于先前研究一致，进一步突出了小湖泊的重要性。GLAKESplus也揭露了热带地区的明显湖泊分布，如长江中下游平原及东南亚沿海地区，这些地区的湖泊在先前研究中被低估。相较于现有全球湖泊数据集，GLAKESplus提供了更大的覆盖范围（60S至84N），更高的空间分辨率（10 m），囊括更多小湖泊（最小湖泊覆盖面积低至0.005km2），更全面的大湖泊边界（通过湖泊补全操作融合了多个数据集）。GLAKESplus提供2017年至2022年之间的湖泊平均水面积，不包含一些在此之前干涸的湖泊及季节性水体。
+尽管我们的制图方法有较高的准确性，但仍存在一些缺陷。我们的深度学习模型在区分湖泊与大河流、盐湖方面的能力需要进一步提高。未来的研究将会专注于如何增强模型区分不同尺度地物的能力，并尝试引入多源卫星数据（如能够穿透云层的SAR影像数据）来提高模型的识别精度。
+总结，GLAKESplus提供了一个全面、准确的湖泊数据集，在全球湖泊制图方面有极大优势。GLAKESplus提供了更细节的全球湖泊分布，有助于内陆湖泊碳通量的准确评估，能为气候变化、内陆水域的生物地球化学研究提供数据支持，对全球水资源保护有重要意义。
 
  Supplementary Figure 1. The performance of the deep learning algorithm in test set. (a) Normal lakes; (b) Small river region; (c) Big river region; (d) Built-up region; (e) Ice lakes; (f) Salt lakes.
 
