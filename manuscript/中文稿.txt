@@ -55,8 +55,7 @@ Fig. 4. Comparsion of GLAKES before and after applying the flood mask.
 3 Results
 3.1 Accuracy assessments 
 
-	158个样本区域组成的独立测试集，被用于精度评估。我们使用的评价指标包含Recall, Precision，F1score及IoU。Recall是正确湖泊预测占真实湖泊标签的比例，precision是正确湖泊预测占所有湖泊预测的比例；F1 Score则是Recall和Precision的harmonic average，接近这两个数字的最差值；IoU为正确湖泊预测占湖泊标签与湖泊预测的并集的比例。因为非湖泊标签占标签的主导，我们没有使用mIoU和overall accurracy，避免大量正确非湖泊预测影响精度评价结果。首先，我们评估了模型在patch尺度上的表现。共有2424个576×576大小的patches依据顺序采样方法从测试集中获取，并被用于分类别精度评价（Table 1）。总体上，模型表现出较好的结果，IoU达到87.5，其他指标高于92.7。在不同区域类别上，模型表现稍有差异。在region AR上,模型的 precision及IoU偏低（分别为89.77%及84.28%，Table 1），模型存在对大河流的错分（Supplementary Figure 1c）。在region  SL上，模型的recall及IoU偏低（分别为72.71%及69.80%，Table 1），模型存在对盐湖的漏分（Supplementary Figure 1f）。将patch尺度的预测结果进行合并后，我们进行了河流掩膜，并进行了精度评价（Table 2）。河流掩膜操作使precision提高了1.77%，recall略微降低0.1%。湖泊尺度上的精度评估结果（Figure 5）表明，正确湖泊预测与湖泊标签及所有湖泊预测都表现出强相关性，R方都是0.98，斜率大于0.92（Fig. 5a）。河流掩膜操作去除的预测值（图标为灰色）真实湖泊预测面积趋近0（Fig. 5a）。随着尺度减小，正确湖泊预测面积与标签的相关度降低（Fig. 5a），不同尺寸组中标签的平均召回率及预测值的平均准确性也在减小（Fig. 5b）。
-
+	158个样本区域组成的独立测试集，被用于精度评估。我们使用的评价指标包含Recall, Precision，F1score及IoU。Recall是正确湖泊预测占真实湖泊标签的比例，precision是正确湖泊预测占所有湖泊预测的比例；F1 Score则是Recall和Precision的harmonic average，接近这两个数字的最差值；IoU为正确湖泊预测占湖泊标签与湖泊预测的并集的比例。因为非湖泊标签占标签的主导，我们没有使用mIoU和overall accurracy，避免大量正确非湖泊预测影响精度评价结果。首先，我们评估了模型在patch尺度上的表现。共有2424个576×576大小的patches依据顺序采样方法从测试集中获取，并被用于分类别精度评价（Table 1）。总体上，模型表现出较好的结果，IoU达到87.5，其他指标高于92.7。在不同区域类别上，模型表现稍有差异。在region AR上,模型的 precision及IoU偏低（分别为89.77%及84.28%，Table 1），存在对大河流的错分（Supplementary Figure 1c）。在占比较少的region  SL样本上，模型的recall及IoU偏低（分别为72.71%及69.80%，Table 1），存在对盐湖的漏分（Supplementary Figure 1f），模型在其他区域上（NR、BR、IL）上表现良好。将测试集预测结果进行合并后，我们对河流掩膜操作进行整体上的精度评价（Table 2），并进行了湖泊尺度上的精度评价（Figure 5）。结果表明，河流掩膜操作使precision提高了1.77%，recall略微降低0.1%，河流掩膜操作去除的预测值的真实湖泊预测面积趋近0（Fig. 5a）。湖泊尺度上，正确预测面积与其对应的标签面积及预测面积表现出强相关性，R方都是0.98，斜率大于0.92，但在小湖泊尺度上，正确湖泊预测面积与标签的相关度稍低（Fig. 5a）。在大于0.005km2的湖泊尺度组上，标签的平均召回率和预测值的平均精准度皆高于86%，并随湖泊尺度增加而提升。值得注意的是，在[1~20km2]的尺度组上标签的平均召回率为93.1%，略低于[0.1-1km2]尺寸组的95.5%。
 Table 1 Accuracy assessments of our developed deep-learning algorithm at patch level with different region type.
 
 Table 2 The improvement of river mask operate in test regions
@@ -64,29 +63,31 @@ Table 2 The improvement of river mask operate in test regions
 
 Fig. 5. Validation in lake-entity of the deep-learning algorithm. (a) The distribution of true predicted area to each labelled lake and each predicted lake. labelled lake in different regions are shown in different marker. Predicted lakes that be distinguished to river residuals are shown in grey color. (c) The mean recall of labelled lakes and mean precision of predicted lakes in different lake size groups. 
 
-3.2 Comparison with other global lake datasets
+3.2 Global lake abundance and distribution 
+	GLAKESplus囊括了~12 million个面积大于0.005km2的湖泊，总面积约3.4×106 km2。同先前研究一致，全球湖泊面积由大湖泊(面积>100 km2)占主导，贡献了56.1%的湖泊总面积 (Fig. 6a)。而在数量上，全球湖泊由小湖泊(面积<1 km2)主导，占据了98.3%(Fig. 6b)，其中，其他公开数据集没有囊括的小于0.01km2的湖泊贡献了全球湖泊数量的32.6%。Fig6展示了GLAKESplus的湖泊数量、面积在1°×1°格网上的空间分布及经度、纬度剖面上的分布。全球湖泊的49%或湖泊总面积的30%位于57°N以北的高纬度地区，主要分布在加拿大地盾、斯堪的纳维亚地区及西西伯利亚平原地区。在57°N以南地区，湖泊数量逐渐减少，而湖泊面积直至36°N开始减少。在30°N、22°N附近，存在湖泊数量的小高峰，主要由北美洲密西西比平原及长江中下游平原的小湖泊所贡献 。热带地区湖泊数量及总面积都较少，但仍有几个密集分布区域，如中国南方沿海地区、柬埔寨及印度东部沿海地区。南美洲亚马逊河流域及非洲的东非大裂谷存在一些大湖泊，使得纬度剖面总面积在1~5°S之间存在一个小峰值(Fig. 6c)。在经度剖面上，有54%的湖泊（或48%的湖泊面积）分布在西半球（-20°W-160°E）；东半球湖泊面积在29~35°E及49~53°E有两个高峰值，湖泊数量则在66~120°E之间存在多个峰值(Fig. 6d)。
 
-	我们将GLAKESplus与GLAKES、PLD进行比较，从而了解其在描绘全球湖泊分布上的优势与劣势。我们首先将三个数据集的湖泊按大小进行分组，分析湖泊总数及总面积差异，结果如Fig. 6所示。大于10000 km2的湖泊中，三个数据集总数量和总面积相差不大(Fig. 6)，GLAKESplus与PLD的面积差异在于咸海。其余湖泊组中，GLAKESplus的湖泊总数量及总面积皆高于另外两个数据集 (Fig. 7a)。GLAKESplus在0.01~1km2的湖泊数量比PLD多出37%，并绘制出额外的390万个小于0.01km2的湖泊。区域尺度的对比进一步体现了3个数据集的差异。GLAKESplus的湖泊边界更精细，能绘制出更多的池塘（如中国长江流域，Fig. 7a）。PLD未考虑池塘，存在错分细长河流的残留。经湖泊补全操作，GLAKESplus的盐湖面积更加地全面（Fig. 7b）。在部分地区，如洪泛平原（Fig. 7c）及阿根廷东部（Fig. 7d），GLAKESplus的湖泊预测少于GLAKES及PLD，但GLAKESplus与Sentinel-2底图较为一致。
+Fig. 6. Spational distribution of GLAKESplus. (a) Lake area density (total lake area/grid area) and (b) Lake count per 1°×1° grid cell. The (c) latitudinal and (d) longitudinal distribution of global lake count and total lake area.
 
-Fig 6. Comparisons of lake count and total area among GLAKESplus, GLAKES and PLD in different lake size groups. 值得注意的是，GLAKES最小的湖泊面积为0.03km2，PLD的最小湖泊面积为0.01km2.。
+3.3 Comparison with other global lake datasets
 
-Fig. 7. Regional comparison among GLAKESplus , GLAKES and PLD. (a) Ponds in southeast China. (b) The Uyuni Salt Flat at the southern end of the South American Plateau. (c) Lakes by river. (d) Seasonal lakes in eastern Argentina. For (a-b), the left figures show the NDWI basemap and lake extend of GLAKES and PLD, the right figures show the RGB basemap and lake extend of GLAKESplus.
+	我们将GLAKESplus与GLAKES、PLD进行比较，从而了解其在描绘全球湖泊分布上的优势与劣势。我们首先对比了三个数据集的湖泊在不同尺度组上的总数量及总面积差异（Fig. 7），以及像素尺度上的不同（Fig. 8）。需要指出，三个数据集的湖泊边界定义有所不同。在大于0.01km2的尺度组中，三个数据集的湖泊数量随着尺度减少而增加，总面积则有所减少。三个数据集皆有16个面积大于10000 km2的湖泊，但PLD对应的总湖泊面积略少于另外两个数据集(Fig. 7)。在其余尺度组中，GLAKESplus的湖泊总数量及总面积皆大于另外两个数据集，且数量面积差异随湖泊尺度减小而增加。GLAKES未囊括小于0.3km2的湖泊，在0.01-1km2的尺度组中湖泊总数量及面积皆最小，但在其余数量组中皆高于PLD。GLAKESplu描绘出了390万个PLD未覆盖的小于0.01km2的湖泊，总湖泊面积达27643km2。像素尺度上，10m空间分辨率的GLAKESplus的湖泊边界比30m空间分辨率的GLAKES、PLD更精细。在池塘密布区域（如中国长江流域，Fig. 8a），GLAKESplus全面、准确地描绘了小湖泊边界，GLAKES表现欠佳，PLD则未将其纳入考虑。对于干旱区的盐湖，PLD和GLAKES有部分缺失，GLAKESplus融合了GLAKES与PLD的结果，湖泊边界更全面（Fig. 7b）。在少部分洪泛平原（如鄂毕河下游 Fig. 8c）及气候干旱的内陆地区（如阿根廷东部地区Fig. 8d），GLAKES及PLD预测的湖泊数量及面积多于GLAKESplus，包括许多平均NDWI偏低的湖泊。
 
-	我们进一步分析了PLD与GLAKESplus在空间格网内的分布差异（Supplementary Figure 2）。在大于0.1 km2 的湖泊上，二者沿经纬度的面积、数量分布没有较大差异，在小于0.1 km2 的湖泊上，GLAKESplus的总数量及总面积皆高于PLD (Fig. 9a, b, d, e)。在0.01~0.1 km2尺度上，除少部分区域（如阿根廷东部及xx流域），GLAKESplus的总湖泊及总面积皆高于PLD，尤其在中国长江流域、印度东部及东南亚地区 (Fig. 8c)。
+Fig 7. Comparisons of lake count and total area among GLAKESplus, GLAKES and PLD in different lake size groups. 值得注意的是，GLAKES最小的湖泊面积为0.03km2，PLD的最小湖泊面积为0.01km2.。
 
-3.3 Global lake abundance and distribution 
+Fig. 8. Regional comparison among GLAKESplus , GLAKES and PLD. (a) Ponds in southeast China. (b) The Uyuni Salt Flat at the southern end of the South American Plateau. (c) Lakes by river. (d) Seasonal lakes in eastern Argentina. For (a-b), the left figures show the NDWI basemap and lake extend of GLAKES and PLD, the right figures show the RGB basemap and lake extend of GLAKESplus.
 
-	GLAKESplus囊括了~12 million个面积大于0.005km2的湖泊，总面积约3.4×106 km2。。湖泊被分为small(<1 km2), medium (1~100 km2) and large (>100 km2)来进行分析。同先前研究一致，全球湖泊面积由大湖泊占主导，贡献了56.1%的湖泊总面积，而小湖泊仅贡献了17.8% (Fig. 6a)。在数量上，全球湖泊由小湖泊主导，占据了98.3%(Fig. 6b)。小湖泊中，小于0.01 km2的湖泊贡献了全球湖泊数量的32.6%。在空间分布上，全球湖泊的49%或湖泊总面积的30%位于57°N以北的高纬度地区，主要分布在加拿大地盾、斯堪的纳维亚地区及西西伯利亚平原地区 (Fig. 6a)。在57°N以南地区，湖泊数量逐渐减少，而湖泊面积直至36°N开始减少。在30°N、22°N附近，存在湖泊数量的小高峰(Fig. 6c)，主要由北美洲密西西比平原及长江中下游平原的小湖泊所贡献 (Fig. 6b)。热带地区湖泊数量及总面积都较少，但仍有几个密集分布区域，如中国南方沿海地区、柬埔寨及印度东部沿海地区(Fig. 6b)。南美洲亚马逊河流域及非洲的东非大裂谷存在一些大湖泊，使得纬度剖面总面积在1~5°S之间存在一个小峰值。在经度剖面上，西半球的湖泊总面积、数量由加拿大地盾地区的密集湖泊主导；东半球湖泊的总面积与数量的峰值不完全对应，湖泊面积由29~35°E的东非大裂谷湖泊及49~53°E的里海主导，湖泊数量则在66~120°E之间存在多个峰值(Fig. 6d)。
+	我们对PLD与GLAKESplus在不同尺寸组的湖泊进行更详细的空间比较（Fig 9）。在大于0.1km2的尺寸组中，GLAKESplus沿经度、纬度的湖泊总数量、面积分布与PLD整体较为接近，在东经60度左右，GLAKESplus的湖泊总面积显著高于PLD；在0.01-0.1 km2 的尺寸组中，GLAKESplus沿经度、纬度的湖泊总数量、面积分布皆高于PLD，在东经120度左右GLAKES湖泊总面积显著高于PLD (Fig. 9a, b, d, e)。GLAKESplus额外绘制的小于0.01km2的湖泊进一步凸显了两个数据集在小湖泊描绘方面的差异。对比两个数据集在0.01-0.1km2尺度组的湖泊在1°×1°的格网内的分布差异（Fig. 9c），结果表明GLAKESplus的小湖泊数量及面积在大部分区域高于PLD，尤其在中国长江流域、印度东部及东南亚地区，在前文提及的少部分洪泛平原及气候干旱的内陆地区，GLAKESplus该尺度组湖泊总数量和面积偏少。
 
-Fig. 6. Spational distribution of GLAKESplus. (a) Lake area density (total lake area/grid area). (b) Lake count per 1°×1° grid cell.  
+Fig. 9. 对比GLAKESplus与PLD的湖泊总面积及数量在空间分布上的差异（排除包含Garabogazköl lagoon的里海）。(a)每个经度上的湖泊总数量; (b)每个纬度上的湖泊总数量; (c)两个数据集的0.01~0.1 km2之间的湖泊在每个1度乘1度的格网内的数量、面积差异。(d) 每个经度上的湖泊总面积; (e) 每个纬度上的湖泊总面积; 在(a,b,d,e)子图中，大于0.1km2的湖泊与小于0.1 km2的湖泊被分别绘制在对向的两个坐标轴中，且坐标轴被经过拉伸，从而更好地显示。GLAKESplus由不同的颜色的堆叠柱状图表示，PLD由不同颜色及线宽的线型图表示。
 
-4 Discussion and conclusion
-基于深度学习方法和sentinel-2卫星数据，我们制作了一个1全球0m分辨率湖泊数据集GLAKESplus。精度评价结果表明，我们的深度学习方法有较高的准确性（recall、precision及F1 score都大于92.7%）。然而，模型在不同区域的表现稍有不同。模型在区分大河宽河流与湖泊之间存在困难，但河流残渣通过后处理操作被有效去除（precision提升了1.77%）。模型在盐湖区域也有较低的召回率，可能是因为盐湖独特是光谱特征。后处理操作的湖泊补全能够补全一部分漏分的盐湖。湖泊尺度的精度评价结果表明，小于0.005km2的湖泊的平均召回率和平均准确性低于85%，删除小于0.005km2的结果有助于提高结果的准确性。GLAKESplus提供了一个全面的湖泊数据集，包含约12 million个面积大于0.005km2的湖泊，总面积达3.4×106 km2。其中，小湖泊（<1 km2）占全球湖泊数量的98.3%，大湖泊则贡献了56.1%的全球湖泊面积。这一分布于先前研究一致，进一步突出了小湖泊的重要性。GLAKESplus也揭露了热带地区的明显湖泊分布，如长江中下游平原及东南亚沿海地区，这些地区的湖泊在先前研究中被低估。相较于现有全球湖泊数据集，GLAKESplus提供了更大的覆盖范围（60S至84N），更高的空间分辨率（10 m），囊括更多小湖泊（最小湖泊覆盖面积低至0.005km2），更全面的大湖泊边界（通过湖泊补全操作融合了多个数据集）。GLAKESplus提供2017年至2022年之间的湖泊平均水面积，不包含一些在此之前干涸的湖泊及季节性水体。
-尽管我们的制图方法有较高的准确性，但仍存在一些缺陷。我们的深度学习模型在区分湖泊与大河流、盐湖方面的能力需要进一步提高。未来的研究将会专注于如何增强模型区分不同尺度地物的能力，并尝试引入多源卫星数据（如能够穿透云层的SAR影像数据）来提高模型的识别精度。
-总结，GLAKESplus提供了一个全面、准确的湖泊数据集，在全球湖泊制图方面有极大优势。GLAKESplus提供了更细节的全球湖泊分布，有助于内陆湖泊碳通量的准确评估，能为气候变化、内陆水域的生物地球化学研究提供数据支持，对全球水资源保护有重要意义。
+4 Discussion
+4.1 结果的准确性
+
+精度评价结果表明了GLAKESplus数据集的准确性。对模型在测试集上的精度评价结果表明，
+5 conclusion
+基于深度学习方法和sentinel-2卫星数据，我们制作了一个全球10m分辨率湖泊数据集。我们通过一系列后处理操作改善了模型的错分、漏分现象：通过河流掩膜操作有效去除河流残渣（precision提升了1.77%）；通过湖泊补全操作补全漏分的盐湖（因独特的光谱特征易被模型漏分）及大湖泊；删除小于0.005km2的湖泊（平均召回率和平均准确性低于85%）提高模型准确性。我们的数据集GLAKESplus描绘了全球约12 million个面积大于0.005km2的湖泊，相对于现有的湖泊数据集有极大提升，如较高的准确性（recall、precision及F1 score都大于92.7%），更高的空间分辨率（10 m），囊括更多小湖泊（最小湖泊覆盖面积低至0.005km2）及更全面的大湖泊边界（通过湖泊补全操作融合了多个数据集）。GLAKESplus额外绘制的小湖泊（<0.01 km2）占全球湖泊数量的37%，进一步突出了小湖泊的重要性。GLAKESplus也揭露了热带地区的明显湖泊分布，如长江中下游平原及东南亚沿海地区，这些地区的湖泊在先前研究中被低估。GLAKESplus提供2017年至2022年之间的湖泊平均水面积，不包含一些在此之前干涸的湖泊及季节性水体。
+尽管我们的制图方法有较高的准确性，但仍存在一些缺陷。我们的深度学习模型在区分湖泊与大河流、盐湖方面的能力需要进一步提高。未来的研究将会专注于如何增强模型区分不同尺度地物的能力，并尝试引入多源卫星数据（如能够穿透云层的SAR影像数据）来提高模型的识别精度。总结，GLAKESplus提供了一个全面、准确的湖泊数据集，在全球湖泊制图方面有极大优势。GLAKESplus提供了更细节的全球湖泊分布，有助于内陆湖泊碳通量的准确评估，能为气候变化、内陆水域的生物地球化学研究提供数据支持，对全球水资源保护有重要意义。
 
  Supplementary Figure 1. The performance of the deep learning algorithm in test set. (a) Normal lakes; (b) Small river region; (c) Big river region; (d) Built-up region; (e) Ice lakes; (f) Salt lakes.
-
-Supplementary Figure 2. 对比GLAKESplus与PLD的湖泊总面积及数量在空间分布上的差异（排除包含Garabogazköl lagoon的里海）。(a)每个经度上的湖泊总数量; (b)每个纬度上的湖泊总数量; (c)两个数据集的0.01~0.1 km2之间的湖泊在每个1度乘1度的格网内的数量、面积差异。(d) 每个经度上的湖泊总面积; (e) 每个纬度上的湖泊总面积; 在(a,b,d,e)子图中，大于0.1km2的湖泊与小于0.1 km2的湖泊被分别绘制在对向的两个坐标轴中，且坐标轴被经过拉伸，从而更好地显示。GLAKESplus由不同的颜色的堆叠柱状图表示，PLD由不同颜色及线宽的线型图表示。
 
 Supplementart Table 1 Keep hyperparameters tested and adjusted in the U-Net Model.
