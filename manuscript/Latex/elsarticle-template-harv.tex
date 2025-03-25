@@ -1,0 +1,283 @@
+
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsmath package provides various useful equation environments.
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{caption} %改变图表标题
+\usepackage{booktabs} %调整表格线与上下内容的间隔
+\usepackage{longtable}%调用跨页表格
+\usepackage{multirow} %多行合并
+\usepackage{array} %调用公式宏包的命令应放在调用定理宏包命令之前，也能控制表格
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+% \usepackage{hyperref}
+\usepackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=blue]{hyperref}
+
+\usepackage{booktabs} 
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+\usepackage{lineno}
+
+\journal{Remote Sensing of Environment}
+
+\begin{document}
+\captionsetup[figure]{labelfont={bf},name={Figure},labelsep=period}
+\captionsetup[table]{labelfont={bf},name={Table},labelsep=period}
+\begin{frontmatter}
+
+
+\title{A 10 m resolution global lake database based on Sentinel-2 MSI data and deep learning} %% Article title
+\author{Beihui Hu\fnref{1}}
+\author{Qiuqi Luo\fnref{1}}
+\author{Xuehui Pi\fnref{2}}
+\author{Lian Feng\corref{cor1}\fnref{1}} %% Author name
+\ead{fengl@sustech.edu.cn}
+\cortext[cor1]{Corresponding author.}
+%% Author affiliation
+\affiliation[1]{organization={School of Environmental Science and Engineering},%Department and Organization
+            addressline={Southern University of Science and Technology}, 
+            city={Shenzhen},
+            postcode={518055}, 
+            % state={Shenzhen},
+            country={China}}
+
+\affiliation[2]{organization={***},%Department and Organization
+            addressline={Tongji University}, 
+            city={Shanghai},
+            postcode={***}, 
+            country={China}}
+
+%% Abstract
+\begin{abstract}
+%% Text of abstract
+It is critical to understanding the abundance and distribution of global lakes, but existing global lake databases lack comprehensive coverage of small lakes, thus hardly depict global lake distribution accurately. Here, we developed a 10 m resolution global lake database using Sentinel-2 MSI data from March 28, 2017 to April 10, 2022 (nearly five years) and a deep learning algorithm. Our GLAKESplus database covers ~12 million lakes with areas  $\ge 0.005\,\text{km}^2$, amounting to a total area of ~$3.4\times10^{6}\,\text{km}^2$, providing detailed information on their average boundaries and spatial distribution. Our results indicate that small lakes ($\le 1\,\text{km}^2$) account for 98.3\% of the total number of lakes worldwide, further highlighting the importance of small lakes in the global ecosystem. Compared with existing databases, GLAKESplus offers higher spatial resolution and more comprehensive coverage of small lakes, providing a more accurate and reliable data foundation for related research.
+\end{abstract}
+
+%%Research highlights
+\begin{highlights}
+\item We provide a global lake database GLAKESplus, with ~12 million lakes $\ge 0.005\,\text{km}^2$
+\item Small lakes with size ($\le 1\,\text{km}^2$) dominate the global lake count (account for 98.3\%)
+\end{highlights}
+
+%% Keywords
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+Sentinel-2 \sep deep learning \sep Lake mapping
+
+\end{keyword}
+
+\end{frontmatter}
+
+%% Add \usepackage{lineno} before \begin{document} and uncomment 
+%% following line to enable line numbers
+% \linenumbers
+
+%% main text
+%%
+\section{Introduction}
+\label{sec1}
+%% Labels are used to cross-reference an item using \ref command.
+Lakes and reservoirs, hereafter simply “lakes”, play an important role in global hydrological, biogeochemical, and carbon cycles \citep{lehner_development_2004}. Their functions are closely related to their geometric characteristics \citep{messager_estimating_2016}. However, global lakes are constantly changing due to their sensitivity to climate changes and human activities \citep{williamson_lakes_2009,pi_mapping_2022}. Understanding the spatial distribution and variability of global lakes is crucial to the study of earth system process and water resource regulation. 
+
+Mapping global lakes remains challenging because of their vast distribution, diverse morphology and sheer quantity. GLWD \citep{lehner_development_2004} and HydroLAKES \citep{messager_estimating_2016} are two global lake databases compiled from multiple data sources with varying resolutions and mapping times, making them difficult to accurately depict global lake distributions. Remote sensing, with its wide coverage, timeliness and rich information, has been widely used in large-scale lake observation. Coarse-resolution satellite sensors such as AVHRR (spatial resolution of 1001 m) and MODIS Terra/Aqua (spatial resolution of 0.25 km to 1 km) are only suitable for studying large lakes. Since Landsat data became freely available in 2008, medium-resolution Landsat satellites have been widely used in global lake mapping. For example, \citet{verpoorter_global_2014} processed Landsat7 ETM+ images from around 2000 to create the GLOWABO, mapping global lakes larger than 0.002 km$^2$. Similarly, \citet{sheng_representative_2016} used Landsat8 OLI data from around 2015 to create the Circa-2015 database, providing representative water areas for global lakes larger than 0.004 km$^2$. However, due to the diverse forms of surface water bodies, GLOWABO and Circa-2015 may contain misclassification and omission errors and their global mapping accuracy has not been assessed.
+
+\citet{pekel_high-resolution_2016} used an expert system to classify water in each Landsat image, producing the Global Surface Water Occurrence (GSWO) product to indicate the probability of water presence. Building on GSWO, \citet{pi_mapping_2022} used deep learning to capture global lake changes from 1984 to 2019, revealing the importance of small lakes. The resulting GLAKES database covers ~3.4 million lakes larger than 0.03 km$^2$, providing maximum lake boundaries and time-series weighted lake areas over the study period. 
+Despite the minimum mapping unit of 0.002 km$^2$ (xxx) in existing Landsat-based global lake databases, small lakes remain poorly understood. Studies have shown that small lakes dominate the global lake count, are significant source of inland water carbon flux, and dominated the lake area variability over the past four decades \citep{holgerson_large_2016,pi_mapping_2022}. Therefore, there is a need to generate a global lake database with improved small-lake coverage. The increasing availability of high-resolution satellites makes this goal achievable. The freely MultiSpectral Instrument (MSI) data of Sentinel-2 has a spatial resolution up to 10 m, offering significant advantages for global lake observation. Previous studies have explored the regional-scale water mapping using sentinel-2 MSI data. For example, \citet{yang_monthly_2020} used Sentinel-2 data to estimate monthly surface water extent in France. \citet{song_high-resolution_2022} provided a 10 m resolution map of urban lakes in China using Sentinel-2 imagery around 2020. However, achieving global 10 m resolution lake map remain a major challenge due to the intensive computational and storage demands.
+
+Recent advances in cloud computing platforms have improved the efficiency and accessibility of processing massive remote sensing data. The Google Earth Engine (GEE) platform provides Sentinel-2 Level-2A product since March 28, 2017, enabling global satellite image processing with reduced local storage requirement. In addition, deep learning with its high accuracy, speed, and automation, offers significant advantages for large-scale remote sensing observations. For example, GLAKES were generated by deep learning algorithm. Deep learning models can learn both spectral and geometric features of ground features, providing a significant advantage to traditional lake identification methods (i.e. Band Thresholding Method).
+Motivated by previous research, this study aims to develop a 10 m resolution global lake database using Sentinel-2 MSI data and a deep learning algorithm. The specific research objectives include: 1) training a semantic segmentation model suitable for Sentinel-2 global lake mapping; 2) mapping global lakes to create a global lake database with improved small-lake coverage and more precise boundaries; and 3) analyzing the global lake distribution and comparing it with existing databases.
+
+
+\section{Materials and methods}
+\label{sec2}
+The production process of GLAKESplus was as follows: 1) Image preprocessing, where the pixel-wise average of the Normalized Difference Water Index (NDWI) \citep{mcfeeters_use_1996}, red, green, blue, and near-infrared bands of Sentinel-2 data from the study period were calculated and downloaded in slices to local storage. 2) Sample preparation, where worldwide samples were generated to form a training dataset (divided into training, validation and test sets). 3) Model application, where a U-Net model was trained to extract lake features from sentinel-2 images and predict a raw global lake classification map. 4) Post-processing, where several post-processing steps were applied to reduce commission and omission errors in the raw global lake classification map, ultimately producing the GLAKESplus database. The flowchart is illustrated in Fig. \ref{fig:Fig1}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figure/Figure1_flowchart.pdf}
+    \caption{Flowchart for developing the GLAKESplus database, including pre-processing, sample preparation, model application, and post-processing steps.}
+    \label{fig:Fig1}
+\end{figure}
+
+\subsection{Sentinel-2 data and preprocessing}
+\label{subsec1}
+
+Sentinel-2 is an earth observation mission under the Copernicus program of the European Space Agency (ESA), consisting of Sentinel-2A (launched in 2015) and Sentinel-2B (launched in 2017), with a revisit period of 2 to 5 days. The B2 (blue), B3 (green), B4 (red), and B8 (near-infrared) bands of sentinel-2 have a spatial resolution of 10 m, enabling the delineation of finer lake boundaries, while the near-infrared bands (B11, B12) have a spatial resolution of 20 m. Here, we selected three visible bands (B2, B3, B4), one short-wave infrared band (B11), and the Normalized Difference Water Index (NDWI)\citep{mcfeeters_use_1996} to map global lakes.
+ The NDWI is a commonly used water enhancement index, calculated for Sentinel-2 as:
+\begin{equation}
+NDWI = (B_3-B_8)(B_3+B_8)
+\end{equation}
+
+NDWI effectively suppresses vegetation signals and enhances water features. However, it has limitations in distinguishing water bodies from impervious surface, as noted in previous studies. Incorporating SWIR band information helps mitigate this issue, improving the accuracy of water body classification.Notably, we resampled the SWIR band to 10 m, consistent with that of other bands we used.
+
+Specifically, using the GEE platform, we obtained Sentinel-2 L2A images with label “percentage of cloud pixels” <60\% from March 28, 2017 to April 10, 2022 and performed several preprocessing operations.First, the Sentinel-2 cloud probability product (S2Cloudless) was used to remove cloud pixels. All pixels with a cloud probability greater than 50\% were masked, and cloud shadow pixels were filtered using NIR band dark pixels and cloud projection intersections. Additionally, snow and ice pixels were masked using the Scene Classification Layer (SCL) of Sentinel-2 L2A products. Subsequently, we calculated the NDWI index for each pixel and image, and averaged all images pixel-wise to obtain a mean composite image that minimized seasonal variations and removed transient disturbances (e.g., cloud residuals, algal blooms, sediment plumes). Finally, nearly 10 TB of Sentinel-2 composite images were downloaded in tiles to the local computer for subsequent lake extraction.
+
+\subsection{Sample preparation}
+\label{subsec2}
+
+We selected representative sample regions globally and manually labeled lake boundaries for model training. For each sample region, we initially generated lake labels using a threshold-based segmentation method on the NDWI band, with thresholds determined manually. Extensive manual refinement was then performed to remove commission and omission errors ensuring high-quality final labels. In Sentinel-2 images, lakes typically have higher NDWI values than the background, lower reflectance in the RGB and SWIR bands, and a round and flat shape, making them easy to distinguish from the background. Regions that were easy to distinguish were labeled as (1) Normal Regions (NR). Additionally, we observe several regions requiring careful identification: (2) Alongside Rivers Regions (AR), Surface water bodies exhibit diverse morphologies, requiring careful differentiation between rivers and lakes, especially oxbow lakes, which share similar shapes with river channels; (3) Built-up Regions (BR), where buildings and their shadows may be misclassified as lakes in the NDWI band and need to be removed using other bands (e.g., xxx); and (4) Ice Lake Regions (IL), where the glaciers have similar features to lakes in the NDWI and SWIR bands are similar to lakes, requiring careful delineation of lake boundaries; (5) Salt Lakes Regions (SL), salt lakes have lower NDWI thresholds and exhibit high reflectance in other bands; Finally, A total of 799 labeled sample regions were created and stratified into training (60\%), validation (20\%) and test (20\%) sets following the stratified random sampling method. The spatial and size distribution of the sample regions is shown in Fig. \ref{fig:Fig2}. To be notice, the sample type of each region are defined by their dominant feature.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figure/Figure2_sample_istribution.eps}
+    \caption{Spatial distribution and statistical characteristics of sample regions. (a) Global spatial distribution of sample regions, categorized into five region types: NR, AR, BR, IL and SL. Different colors represent the dataset splits: training (sky blue), validation (orange), and test (green). (b) Histogram of sample region sizes with different dataset splits stacked for visualization. (c) Summary statistics of sample regions, including the count of regions and their total area for each region type.}
+    \label{fig:Fig2}
+\end{figure}
+
+\subsection{Model application}
+\label{subsec3}
+
+Deep learning refers to the automatic learning and extraction of complex features from input data through multi-layer neural networks, and has become a key driver and process of artificial intelligence, widely used in remote sensing fields over the several years\citep{brandt_unexpectedly_2020}.Among the powerful performance in deep learning, U-Net \citep{ronneberger_u-net_2015} and its variants have achieved state-of-the-art performance in semantic segmentation task. U-Net is a fully convolutional neural network, the left side of the network functions as an encoder, extracting hierarchical features, while the right side acts as a decoder, reconstructing spatial information through up-sampling. During the encoding and decoding process, U-Net fuses deep and shallow features via skip connections, thereby improving the accuracy of semantic segmentation. By employing the overlap-tile strategy, U-Net can seamlessly segment arbitrarily large images \citep{ronneberger_u-net_2015}. Building on previous research \citep{brandt_unexpectedly_2020}, \citet{pi_mapping_2022} applied the U-Net model to global lake mapping, achieving promising results. Therefore, we made subtle adjustments to their code and adapted the U-Net model for global lake mapping at a 10 m resolution using Sentinel-2 imagery.
+Due to GPU memory constraints, the model input size was set to 576×576. Since the sample regions were too large for the model input, a random sampling method was employed to generate the same size patches as the model input from the training and test sets. The probability of each sample region being randomly selected was proportional to its size to avoid undersampling large regions and oversampling small regions. 
+The training set and validation set were used to model training. We adopted the same loss function and optimization algorithms as \citet{pi_mapping_2022}. During training, the gradient of loss function were calculated to optimize the model's parameters, making predictions as close as possible to the true labels. We keep the model with the smallest loss error on validation set were used to save the best model. In our study, we keep the model with the smallest loss error on validation set. Training was terminated prematurely when the validation loss did not decrease for 50 consecutive epochs to avoid overfitting of the training data. The specific hyperparameter settings for training are shown in Supplementary Table 1.
+After training, the final model were used to predict lakes from global grid images. A sliding window was used to crop large grid images into small patches. The prediction of each patch was stitched together to form raw global lake classification map. To improve accuracy, the prediction of edge pixels within a 100-pixel margin of each patch were discarded due to the insufficient contextual information at the edges. 
+
+\subsection{Post processing}
+\label{subsec4}
+
+Several post-processing operations were applied to the raw global lake classification map. Due to the relatively small input size, the deep learning model struggled to distinguish local features similar to large lakes, such as oceans and rivers with large widths. Thus, we removed oceanic and river residuals by other databases. The coastline data sets of Openstreetmap (OSM) \citep{goodchild_citizens_2007} were used to remove ocean residuals. Its land polygons can be downloaded from https://osmdata.openstreetmap.de/data/land-polygons.html . All polygons that were not within land polygons were considered as ocean residuals and been removed. Lagoons connected to the ocean were not included in our consideration because their different characteristics from inland lakes. To remove river residuals, we adopted and modified the method proposed by \citet{pi_mapping_2022}. Firstly, we use OSM river data and the Global River Widths from Landsat (GRWL)\citep{allen_global_2018} database to remove river pixels from the raw global lake classification map. Subsequently, we retained reservoir polygons that intersected with other reservoir datasets,including the GeoDAR dataset \citep{wang_surface_2025} and OSM reservoir data. The river and reservoir data from OSM were extracted from OSM's global dataset (https://planet.openstreetmap.org/). Next, we improved the accuracy of river masking using the GLAKES dataset and the Area Ratio (AR) of each polygon. The AR is calculated using the following formula:
+\begin{equation}
+Area Ratio = Area_{after\ mask}/Area_{before\ mask}
+\end{equation}
+
+Where $Area_{before\ mask}$ and $Area_{after\ mask}$ represent the area of the polygon before and after river masking, respectively. Polygons with AR closer to 1 are more likely to be a lake connected to a river. Conversely, polygons with AR closer to 0 are more likely to be a river residuals. Specifically, polygons intersecting with GLAKES with AR > 0.8 were retained as river-connected lakes (Fig. \ref{fig:Fig3}a). Polygons not intersecting GLAKES with AR < 0.8 were entirely removed, as they are essentially river residuals (Fig. \ref{fig:Fig3}d). In other cases, polygons after initial mask were retained (Fig. \ref{fig:Fig3}b, c). Finally, extensive manual inspection were performed to minimize errors.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figure/Figure3 River mask.png}
+    \caption{Post-processing of river mask and the corresponding results. (a) Target polygons intersect with GLAKES with an area ratio $\geq$0.8; (b) Targets polygon not intersect with GLAKES with an area ratio $\geq$0.8; (c) Targets polygon intersect with GLAKES with an area ratio $<$0.8; (d) Targets polygon not intersect with GLAKES with an area ratio $<$0.8.}
+    \label{fig:Fig3}
+\end{figure}
+
+Based on the accuracy assessments results (Fig. \ref{fig:Fig5}), we set the minimum lake area threshold as 0.005 km$^2$ and removed all polygons smaller than this threshold. After the above operation, the commission errors of raw global lake classification map were largely eliminated. We further performed a lake-completion operation to reduce the omission error. Because of the limited input size, our model failed to capture parts of large lakes that exhibit features similar to rivers. Additionally, in the Sentinel-2 mean basemap, lakes in arid regions were often misclassified as land due to their high surface reflectance. GLAKES has been proven accurate for mapping large global lakes, providing comprehensive maximum lake boundaries over multiple years, making it suitable for large lake completion. Additionally, PLD \citep{wang_global_2022} is a global lake database integrating multiple data sources, with a minimum lake coverage area of 0.01 km$^2$. Its primary data source, Circa-2015, has shown good performance of highly dynamic lakes in Oceania \citep{sheng_representative_2016}. Therefore, the PLD dataset was used to supplement lakes in arid regions. We defined arid regions as areas with an Arid Index < 0.2, obtained form the Arid Index database\citep{zomer_version_2022}.
+ Before merging, we processed the GLAKES dataset to remove misclassification errors within floodplains. For examples, xxx.  SHIFT \citep{zheng_shift_2024} is a global geomorphic floodplain dataset based on DEM-mapping with a 90 m resolution, offering a comprehensive coverage of floodplains. We applied a 30\% occurrence threshold to mask GLAKES within the SHIFT dataset and outside arid regions, effectively removed the floodplain residuals (Fig. \ref{fig:Fig4}a, b) and agriculture zones (Fig. \ref{fig:Fig4}c, d). 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figure/Figure4 GLAKES flood mask.png}
+    \caption{Comparison of GLAKES before and after applying the flood mask. (a) and (b) demonstrate that the flood masking operation effectively removed misclassified floodplains, while (c) and (d) illustrate its effectiveness in eliminating misclassified paddy fields. For (a-d), the left figures show the water occurrence (ranging from 0 to 100) and GLAKES polygons before mask (orange line), the right figures show the GLAKES polygons after mask (blue).}
+    \label{fig:Fig4}
+\end{figure}
+
+Finally, natural lakes larger than 1 km$^2$ and all reservoirs from the floodplain-masked GLAKES dataset, along with all PLD lakes located in arid regions, were merged into the raw global lake classification map. After extensive manual inspection and modification, the final global lake classification map was compiled GLAKESplus dataset.
+
+\section{Results}
+\label{sec3}
+
+\subsection{Accuracy assessments}
+\label{subsec31}
+
+An independent test set consisting of 158 sample regions was used to evaluate the model classification accuracy. The assessment metrics included Recall, Precision, F1 score and IoU. Recall represents the proportion of correctly predicted lakes among lake labels, while precision represents the proportion of correctly predicted lakes among predicted lakes; F1 score is the harmonic average of Recall and Precision, and IoU represents the proportion of correctly predicted lakes to the union between lake labels and prediction. First, we evaluated model performance at the patch level. A total of 2424 patches (each 576×576 pixels) were extracted sequentially from the test set for type-wise accuracy assessment (Table \ref{tabel1}). Overall, our model showed good performance with IoU of 87.5\% and other metrics exceeding 92.7\%. Performance varied slightly across different region types. In AR regions, precision and IoU were relatively lower (89.77\% and 84.28\%, respectively; Table \ref{tabel1}), primarily due to the river residues of large rivers (Supplementary Figure 1c). In SL regions, our model exhibited lower recall and IoU (72.71\% and 69.80\%, respectively; Table 1), primarily due to the omission of salt lakes (Supplementary Figure 1f). Overall, our model performed well in other regions (NR, BR, and IL). 
+
+After merging the prediction results from the test set, we conducted an overall accuracy evaluation of the river masking operation (Table \ref{tabel2}) and performed a lake-scale accuracy assessment (Fig. \ref{fig:Fig5}). The results indicated that the river mask operation improved Precision by 1.77\% (Table \ref{tabel2}), the true predicted area after removing the river residuals approached zero (Fig. \ref{fig:Fig5}a). 
+
+\begin{table}[t]
+    \centering
+    \caption{Accuracy assessments of our developed deep-learning algorithm at patch level with different region type.}\label{tabel1}
+    \begin{tabular}{cccccc}
+    \toprule
+    Region type & Patch count & recall (\%)	& precision (\%) & F1 (\%) & IoU (\%) \\
+    \midrule
+    NR & 798 & 93.00 & 96.26 & 94.29 & 89.71 \\
+    AR & 698 & 93.08 & 89.77 & 91.08 & 84.28 \\
+    BR & 308 & 95.78 & 90.83 & 93.16 & 87.29 \\
+    IL & 522 & 96.79 & 94.76 & 95.72 & 91.87 \\
+    SL & 98 & 72.71 & 95.60 & 81.46 & 69.80 \\
+    total & 2424 & 93.37 & 93.35 & 92.70 & 87.50 \\
+    \bottomrule
+    \end{tabular}
+    
+\end{table}
+
+\begin{table}[t]
+    \centering
+    \caption{The improvement of river mask operate in test regions}\label{tabel2}
+    \begin{tabular}{ccccc}
+    \toprule
+     & recall (\%)	& precision (\%) & F1 (\%) & IoU (\%) \\
+    \midrule
+    Before river mask & 93.50  & 92.95  & 93.22  & 87.31 \\
+    After river mask & 93.40  & 94.72  & 94.05  & 88.78 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+At the lake scale, the true predicted area showed strong correlations with both corresponding labeled area and the predicted area, with $R^2$ values of 0.98 and slopes greater than 0.92 (Fig. \ref{fig:Fig5}a). However, the correlation between the true predicted area and the labeled area was slightly weaker for smaller lakes (Fig. \ref{fig:Fig5}a). For lakes larger than 0.005 km$^2$, both the mean recall of the labeled lakes and the mean precision of the predicted lakes exceed 86\%, and improve as lake size increases. Notably, in 1–20 km$^2$ size group, the mean recall is 93.1\%, slightly lower than the 95.5\% observed in the [0.1 - 1 km$^2$] size group.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figure/Figure5_validation_2.eps}
+    \caption{Validation in lake-entity of the deep-learning algorithm. (a) The area of each label and each predicted polygon and its corresponding true predicted area. (b) The mean recall of labels and mean precision of predicted polygons in different lake size groups.}
+    \label{fig:Fig5}
+\end{figure}
+
+\subsection{Global lake abundance and distribution}
+\label{subsec32}
+
+GLAKESplus includes about 12 million lakes larger than 0.005 km$^2$, with a total lake area of ~$3.4 \times 10^6\, \text{km}^2$. Consistent with previous studies, large lakes ($\ge 100\, \text{km}^2$) dominate global lake area (accounting for 56.1\%; Figure \ref{fig:Fig6}a), while small lakes ($\le 1\, km^2$) overwhelmingly dominate the global lake count (accounting for 98.3\%; Fig. \ref{fig:Fig6}b), with lakes smaller than 0.01 km$^2$ (not covered by existing publicly available datasets) contributing 32.6\% of the total lake count. The spatial distribution of lake count and total area in GLAKESplus is shown within 1° × 1° grid cells, as well as their longitudinal and latitudinal profiles. Globally, 49\% of global lakes or 30\% of total lake area are located north of 57°N, mainly distributed in the Canadian Shield, Scandinavia, and Western Siberian Plain; South of 57°N, lake count gradually decreases, while lake area remains stable until 36°N, after which it begins to decline; Small peaks in lake count appear around 30°N and 22°N, mainly contributed by dense lake distributions in the Mississippi River Basin (North America) and the lower Yangtze River floodplain (Asia). In tropical regions, both lake count and total area are relatively low, but several high-density regions exist, such as coastal southern China, Cambodia, and eastern India. Additionally, the presence of large lakes in the Amazon Basin (South America) and the East African Rift (Africa) results a small peak in lake area between 1°S and 5°S. In the longitudinal profiles, 54\% of global lakes (or 48\% of total lake area) are distributed in the Western Hemisphere (-20°W to 160°E). In the Eastern Hemisphere, lake area exhibits two prominent peaks at 29–35°E (East African Rift lakes,) and 49–53°E (Caspian Sea), while lake count shows multiple peaks between 66–120°E (Fig. \ref{fig:Fig6}d).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figure/Figure6 global lake distribution.png}
+    \caption{Spatial distribution of GLAKESplus. Lakes in GLAKESplus were mapped, showing (a) lake area density (total lake area/grid area) and (b) lake count per 1°×1° grid cell. The latitudinal and longitudinal lake profile, summarizing global lake count and total lake area by 1°, were shown in (c) and (d), while (a) and (b) present the statistics for small ($\le 1 \,\text{km}^2$), medium (1–100 km$^2$), and large ($\ge 100 \,\text{km}^2$) lakes, respectively.}
+    \label{fig:Fig6}
+\end{figure}
+
+\subsection{Comparison with other global lake databases}
+\label{subsec33}
+
+We compared GLAKESplus with GLAKES and PLD to evaluate its strengths and limitations in representing global lake distributions.The comparison involved differences in total lake count and  lake area across different size groups (Fig. \ref{fig:Fig7}) as well as pixel-scale boundary differences (Fig. \ref{fig:Fig8}). It should be noted that the three datasets define lake boundaries differently. For lakes larger than 0.01 km$^2$, all three datasets showed an increase in lake count and a decrease in total lake area as size decreased. All datasets contained 16 lakes larger than 10,000 km$^2$, but the total lake area in PLD was slightly smaller than that in GLAKESplus and GLAKES. In other size groups, GLAKESplus consistently included more lakes and a larger total area than the other datasets, with the differences increasing as lake size decreased. GLAKES did not include lakes smaller than 0.3 km$^2$, resulting in the smallest lake count and area in the 0.01–1 km$^2$ size group, whereas it exceeded PLD in all other size groups; Compared to PLD, GLAKESplus mapped an extra 3.9 million lakes smaller than 0.01 km$^2$, with a total lake area of 27,643 km$^2$. 
+
+At pixel-level scale (Fig. \ref{fig:Fig8}) , GLAKESplus provided more detailed lake boundaries than GLAKES and PLD due to higher spatial resolution (30 m to 10 m). In pond-dense regions, such as the Yangtze River Basin in China (Fig. \ref{fig:Fig8}a), GLAKESplus accurately and comprehensively delineated small lake boundaries, while GLAKES underperformed, and PLD did not account for these ponds at all. For salt lakes in arid regions, GLAKES and PLD showed partial omissions, whereas GLAKESplus integrated lakes from GLAKES and PLD, leading to more comprehensive lake boundaries (Fig. \ref{fig:Fig8}b). In some floodplain regions (e.g., the lower Ob River floodplain; Fig. \ref{fig:Fig8}c) and semi-arid regions (e.g., eastern Argentina; Fig. \ref{fig:Fig8}d), the lake count and area of GLAKES and PLD are larger than GLAKESplus, however, GLAKESplus omitted these lakes with low NDWI value in sentinel-2 mean imagery.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figure/Figure7 comparison of three database.png}
+    \caption{Comparisons of lake count and area in different size groups among GLAKESplus, GLAKES and PLD.}
+    \label{fig:Fig7}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figure/Figure8 three_dataset_compare.png}
+    \caption{Regional comparison among GLAKESplus, GLAKES and PLD. (a) Ponds in the Yangtze River Basin. (b) The Uyuni Salt Flat in Bolivia. (c) Lakes in the lower Ob River floodplain. (d) Seasonal lakes in eastern Argentina. For (a-d), the left figures show the NDWI basemap and lake extend of GLAKES and PLD, the right figures show the RGB basemap and lake extend of GLAKESplus.}
+    \label{fig:Fig8}
+\end{figure}
+
+We conducted a more detailed spatial comparison between GLAKESplus and PLD (Fig. \ref{fig:Fig8}). For lakes larger than 0.1 km$^2$, the total lake count and area distributions along latitude and longitude in GLAKESplus are generally similar to those in PLD, but for lakes smaller than 0.1 km$^2$, GLAKESplus exhibits significantly higher values than PLD (Fig. \ref{fig:Fig9}a, b, d, e). We further compared the total area and count of lakes with area between 0.01~0.1 km$^2$, which are included in both datasets, within 1° × 1° grid cells (Fig. \ref{fig:Fig8}c). The results indicate that, except for a few floodplains (e.g., ) and arid inland regions mentioned earlier, GLAKESplus contains more lakes and a greater total lake area than PLD across nearly global regions. The differences are particularly pronounced in the Yangtze River Basin in China, eastern India, the Mississippi River basin, and xxx 
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figure/Figure9.png}
+    \caption{The differences in the spatial distribution of total lake area and count between GLAKESplus and PLD. Lake count of two databases (a) per latitudinal degree and (b) per longitude degree. Total lakes area of two databases (d) per latitudinal degree and (e) per longitude degree. For (a, b, d and e), lakes greater than 0.1 km$^2$ and smaller than 0.1 km$^2$ were plotted on opposite axes, with the axes were stretched for better visual presentation. GLAKESplus was represented by stacked bar charts figure in different colors, while PLD was represented by line charts in different colors and line widths. (c) The difference of count and total area of lakes in the [0.01 - 0.1 km$^2$] size group between two databases per 1°×1° grid cell. Notably, the Caspian Sea was excluded, which contains the Garabogazköl lagoon.}
+    \label{fig:Fig9}
+\end{figure}
+
+\section{Discussion and Conclusions}
+\label{sec4}
+
+Based on a deep learning algorithm  and Sentinel-2 satellite data collected between March 28, 2017 to April 10, 2022, we proposed the first 10 m resolution global lake database. GLAKESplus contains ~12 million lakes larger than 0.005 km$^2$, covering a total area of  $3.4 \times 10^6\, \text{km}^2$. Accuracy assessments indicate that our model achieves high accuracy, with recall, precision, and F1-score exceeding 92.75 and an IoU above 82.7 on the test set. 
+However, our model exhibits some limitations in certain regions for our raw prediction. Specifically, due to the relatively small input image size, the model faces challenges in distinguishing large-scale water bodies. This results in the misclassification of some wide rivers as lakes (with a precision of 89.77\% in AR regions) and the omission of certain large lakes with river-like characteristics (with an average recall of 93.1\% for test labels with size $\ge 1\, \text{km}^2$, slightly lower than that of smaller size groups). Increasing the input size would significantly raise GPU memory demands, and 576 × 576 pixels was the largest input size our GPU memory (48 GB) can support during training. Additionally, our model omitted some salt lakes (with a recall of 72.71\% in SL regions) due to their spectral characteristics being similar to those of land. Fortunately, our post-processing operations effectively reduced the omission and commission errors of the raw prediction. First, ocean and river residuals were effectively removed by other databases. The river masking operation improving the precision of test regions by 1.77\%. Second, polygons smaller than 0.005 km$^2$ were deleted, since the mean recall of labels and mean precision of predictions both below 85\%. Finally, a lake completion procedure was implemented to restore boundaries for large lakes and arid-region lakes, ensuring more comprehensive lake delineation. Additionally, we conducted extensive manual inspections to ensure the accuracy of the mapping results.
+
+Compared to existing global lake databases \citep{verpoorter_global_2014,messager_estimating_2016,sheng_representative_2016,pi_mapping_2022,wang_global_2022}, GLAKESplus offers a significant improvement in spatial resolution (10 m) and provides the most comprehensive coverage of small lakes to date. Lakes with size $\le$ 1 km$^2$ contribute 98\% of the global lake count, further highlighting the importance of small lakes. GLAKESplus surpasses GLAKES and PLD in both the lake count and total lake area across all size groups, while also providing more detailed spatial distribution information. A key highlight is that GLAKESplus comprehensively maps numerous ponds in the middle and lower Yangtze River Plain and the coastal regions of Southeast Asia, which are underestimated in PLD and GLAKES. However, GLAKESplus also has some limitations. In certain areas, its lake extent predictions are lower than those of GLAKES and PLD. For example, in some floodplains, GLAKESplus tends to predict only perennial water bodies, while in arid regions, it tends to overlook seasonal or dried-up lakes. Additionally, unlike GLAKES, GLAKESplus provides only a single temporal period, lacking information on lake dynamics over time.
+
+The global lake distribution information provided by GLAKESplus contributes to the accurate assessment of inland lake carbon fluxes, supports research on climate change and the biogeochemistry of inland waters, and is of great significance for global water resource conservation. Future research will focus on enhancing the model's ability to distinguish lakes at different scales and extending the 10 m resolution global lake mapping method to different time periods for dynamic monitoring of global lakes. 
+
+
+\bibliographystyle{elsarticle-harv.bst}
+\bibliography{reference.bib}
+\end{document}
+
+\endinput
+%%
+%% End of file `elsarticle-template-harv.tex'.
+
+

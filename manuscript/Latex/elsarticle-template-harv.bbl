@@ -1,0 +1,122 @@
+\begin{thebibliography}{18}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Allen and Pavelsky(2018)}]{allen_global_2018}
+\bibinfo{author}{Allen, G.H.}, \bibinfo{author}{Pavelsky, T.M.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Global extent of rivers and streams}.
+\newblock \bibinfo{journal}{Science} \bibinfo{volume}{361}, \bibinfo{pages}{585--588}.
+\newblock \URLprefix \url{https://www.science.org/doi/10.1126/science.aat0636}, \DOIprefix\doi{10.1126/science.aat0636}.
+%Type = Article
+\bibitem[{Brandt et~al.(2020)Brandt, Tucker, Kariryaa, Rasmussen, Abel, Small, Chave, Rasmussen, Hiernaux, Diouf, Kergoat, Mertz, Igel, Gieseke, Schöning, Li, Melocik, Meyer, Sinno, Romero, Glennie, Montagu, Dendoncker and Fensholt}]{brandt_unexpectedly_2020}
+\bibinfo{author}{Brandt, M.}, \bibinfo{author}{Tucker, C.J.}, \bibinfo{author}{Kariryaa, A.}, \bibinfo{author}{Rasmussen, K.}, \bibinfo{author}{Abel, C.}, \bibinfo{author}{Small, J.}, \bibinfo{author}{Chave, J.}, \bibinfo{author}{Rasmussen, L.V.}, \bibinfo{author}{Hiernaux, P.}, \bibinfo{author}{Diouf, A.A.}, \bibinfo{author}{Kergoat, L.}, \bibinfo{author}{Mertz, O.}, \bibinfo{author}{Igel, C.}, \bibinfo{author}{Gieseke, F.}, \bibinfo{author}{Schöning, J.}, \bibinfo{author}{Li, S.}, \bibinfo{author}{Melocik, K.}, \bibinfo{author}{Meyer, J.}, \bibinfo{author}{Sinno, S.}, \bibinfo{author}{Romero, E.}, \bibinfo{author}{Glennie, E.}, \bibinfo{author}{Montagu, A.}, \bibinfo{author}{Dendoncker, M.}, \bibinfo{author}{Fensholt, R.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{An unexpectedly large count of trees in the {West} {African} {Sahara} and {Sahel}}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{587}, \bibinfo{pages}{78--82}.
+\newblock \URLprefix \url{https://www.nature.com/articles/s41586-020-2824-5}, \DOIprefix\doi{10.1038/s41586-020-2824-5}.
+%Type = Article
+\bibitem[{Goodchild(2007)}]{goodchild_citizens_2007}
+\bibinfo{author}{Goodchild, M.F.}, \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{Citizens as sensors: the world of volunteered geography}.
+\newblock \bibinfo{journal}{GeoJournal} \bibinfo{volume}{69}, \bibinfo{pages}{211--221}.
+\newblock \URLprefix \url{https://doi.org/10.1007/s10708-007-9111-y}, \DOIprefix\doi{10.1007/s10708-007-9111-y}.
+%Type = Article
+\bibitem[{Holgerson and Raymond(2016)}]{holgerson_large_2016}
+\bibinfo{author}{Holgerson, M.A.}, \bibinfo{author}{Raymond, P.A.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Large contribution to inland water {CO2} and {CH4} emissions from very small ponds}.
+\newblock \bibinfo{journal}{Nature Geoscience} \bibinfo{volume}{9}, \bibinfo{pages}{222--226}.
+\newblock \URLprefix \url{https://www.nature.com/articles/ngeo2654}, \DOIprefix\doi{10.1038/ngeo2654}. \bibinfo{note}{number: 3 Publisher: Nature Publishing Group}.
+%Type = Article
+\bibitem[{Lehner and Döll(2004)}]{lehner_development_2004}
+\bibinfo{author}{Lehner, B.}, \bibinfo{author}{Döll, P.}, \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{Development and validation of a global database of lakes, reservoirs and wetlands}.
+\newblock \bibinfo{journal}{Journal of Hydrology} \bibinfo{volume}{296}, \bibinfo{pages}{1--22}.
+\newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0022169404001404}, \DOIprefix\doi{10.1016/j.jhydrol.2004.03.028}.
+%Type = Article
+\bibitem[{McFEETERS(1996)}]{mcfeeters_use_1996}
+\bibinfo{author}{McFEETERS, S.K.}, \bibinfo{year}{1996}.
+\newblock \bibinfo{title}{The use of the {Normalized} {Difference} {Water} {Index} ({NDWI}) in the delineation of open water features}.
+\newblock \bibinfo{journal}{International Journal of Remote Sensing} \bibinfo{volume}{17}, \bibinfo{pages}{1425--1432}.
+\newblock \URLprefix \url{https://www.tandfonline.com/doi/full/10.1080/01431169608948714}, \DOIprefix\doi{10.1080/01431169608948714}.
+%Type = Article
+\bibitem[{Messager et~al.(2016)Messager, Lehner, Grill, Nedeva and Schmitt}]{messager_estimating_2016}
+\bibinfo{author}{Messager, M.L.}, \bibinfo{author}{Lehner, B.}, \bibinfo{author}{Grill, G.}, \bibinfo{author}{Nedeva, I.}, \bibinfo{author}{Schmitt, O.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Estimating the volume and age of water stored in global lakes using a geo-statistical approach}.
+\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{7}, \bibinfo{pages}{13603}.
+\newblock \URLprefix \url{https://www.nature.com/articles/ncomms13603}, \DOIprefix\doi{10.1038/ncomms13603}. \bibinfo{note}{number: 1 Publisher: Nature Publishing Group}.
+%Type = Article
+\bibitem[{Pekel et~al.(2016)Pekel, Cottam, Gorelick and Belward}]{pekel_high-resolution_2016}
+\bibinfo{author}{Pekel, J.F.}, \bibinfo{author}{Cottam, A.}, \bibinfo{author}{Gorelick, N.}, \bibinfo{author}{Belward, A.S.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{High-resolution mapping of global surface water and its long-term changes}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{540}, \bibinfo{pages}{418--422}.
+\newblock \URLprefix \url{http://www.nature.com/articles/nature20584}, \DOIprefix\doi{10.1038/nature20584}.
+%Type = Article
+\bibitem[{Pi et~al.(2022)Pi, Luo, Feng, Xu, Tang, Liang, Ma, Cheng, Fensholt, Brandt, Cai, Gibson, Liu, Zheng, Li and Bryan}]{pi_mapping_2022}
+\bibinfo{author}{Pi, X.}, \bibinfo{author}{Luo, Q.}, \bibinfo{author}{Feng, L.}, \bibinfo{author}{Xu, Y.}, \bibinfo{author}{Tang, J.}, \bibinfo{author}{Liang, X.}, \bibinfo{author}{Ma, E.}, \bibinfo{author}{Cheng, R.}, \bibinfo{author}{Fensholt, R.}, \bibinfo{author}{Brandt, M.}, \bibinfo{author}{Cai, X.}, \bibinfo{author}{Gibson, L.}, \bibinfo{author}{Liu, J.}, \bibinfo{author}{Zheng, C.}, \bibinfo{author}{Li, W.}, \bibinfo{author}{Bryan, B.A.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Mapping global lake dynamics reveals the emerging roles of small lakes}.
+\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{13}, \bibinfo{pages}{5777}.
+\newblock \URLprefix \url{https://www.nature.com/articles/s41467-022-33239-3}, \DOIprefix\doi{10.1038/s41467-022-33239-3}. \bibinfo{note}{number: 1 Publisher: Nature Publishing Group}.
+%Type = Misc
+\bibitem[{Ronneberger et~al.(2015)Ronneberger, Fischer and Brox}]{ronneberger_u-net_2015}
+\bibinfo{author}{Ronneberger, O.}, \bibinfo{author}{Fischer, P.}, \bibinfo{author}{Brox, T.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{U-{Net}: {Convolutional} {Networks} for {Biomedical} {Image} {Segmentation}}.
+\newblock \URLprefix \url{http://arxiv.org/abs/1505.04597}, \DOIprefix\doi{10.48550/arXiv.1505.04597}. \bibinfo{note}{arXiv:1505.04597 [cs]}.
+%Type = Article
+\bibitem[{Sheng et~al.(2016)Sheng, Song, Wang, Lyons, Knox, Cox and Gao}]{sheng_representative_2016}
+\bibinfo{author}{Sheng, Y.}, \bibinfo{author}{Song, C.}, \bibinfo{author}{Wang, J.}, \bibinfo{author}{Lyons, E.A.}, \bibinfo{author}{Knox, B.R.}, \bibinfo{author}{Cox, J.S.}, \bibinfo{author}{Gao, F.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Representative lake water extent mapping at continental scales using multi-temporal {Landsat}-8 imagery}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment} \bibinfo{volume}{185}, \bibinfo{pages}{129--141}.
+\newblock \URLprefix \url{https://linkinghub.elsevier.com/retrieve/pii/S0034425715302649}, \DOIprefix\doi{10.1016/j.rse.2015.12.041}.
+%Type = Article
+\bibitem[{Song et~al.(2022)Song, Jiang, Fan and Li}]{song_high-resolution_2022}
+\bibinfo{author}{Song, C.}, \bibinfo{author}{Jiang, X.}, \bibinfo{author}{Fan, C.}, \bibinfo{author}{Li, L.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{High-resolution circa-2020 map of urban lakes in {China}}.
+\newblock \bibinfo{journal}{Scientific Data} \bibinfo{volume}{9}, \bibinfo{pages}{747}.
+\newblock \URLprefix \url{https://www.nature.com/articles/s41597-022-01874-6}, \DOIprefix\doi{10.1038/s41597-022-01874-6}.
+%Type = Article
+\bibitem[{Verpoorter et~al.(2014)Verpoorter, Kutser, Seekell and Tranvik}]{verpoorter_global_2014}
+\bibinfo{author}{Verpoorter, C.}, \bibinfo{author}{Kutser, T.}, \bibinfo{author}{Seekell, D.A.}, \bibinfo{author}{Tranvik, L.J.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{A global inventory of lakes based on high-resolution satellite imagery}.
+\newblock \bibinfo{journal}{Geophysical Research Letters} \bibinfo{volume}{41}, \bibinfo{pages}{6396--6402}.
+\newblock \URLprefix \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/2014GL060641}, \DOIprefix\doi{10.1002/2014GL060641}. \bibinfo{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/2014GL060641}.
+%Type = Article
+\bibitem[{Wang et~al.(2022)Wang, Zhang, Yang, Huang, Su, Liu, Liu and Zhang}]{wang_global_2022}
+\bibinfo{author}{Wang, Z.}, \bibinfo{author}{Zhang, J.}, \bibinfo{author}{Yang, X.}, \bibinfo{author}{Huang, C.}, \bibinfo{author}{Su, F.}, \bibinfo{author}{Liu, X.}, \bibinfo{author}{Liu, Y.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Global mapping of the landside clustering of aquaculture ponds from dense time-series 10 m {Sentinel}-2 images on {Google} {Earth} {Engine}}.
+\newblock \bibinfo{journal}{International Journal of Applied Earth Observation and Geoinformation} \bibinfo{volume}{115}, \bibinfo{pages}{103100}.
+\newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S1569843222002886}, \DOIprefix\doi{10.1016/j.jag.2022.103100}.
+%Type = Article
+\bibitem[{Williamson et~al.(2009)Williamson, Saros, Vincent and Smol}]{williamson_lakes_2009}
+\bibinfo{author}{Williamson, C.E.}, \bibinfo{author}{Saros, J.E.}, \bibinfo{author}{Vincent, W.F.}, \bibinfo{author}{Smol, J.P.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Lakes and reservoirs as sentinels, integrators, and regulators of climate change}.
+\newblock \bibinfo{journal}{Limnology and Oceanography} \bibinfo{volume}{54}, \bibinfo{pages}{2273--2282}.
+\newblock \URLprefix \url{https://onlinelibrary.wiley.com/doi/abs/10.4319/lo.2009.54.6_part_2.2273}, \DOIprefix\doi{10.4319/lo.2009.54.6_part_2.2273}. \bibinfo{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.4319/lo.2009.54.6\_part\_2.2273}.
+%Type = Article
+\bibitem[{Yang et~al.(2020)Yang, Qin, Yésou, Ledauphin, Koehl, Grussenmeyer and Zhu}]{yang_monthly_2020}
+\bibinfo{author}{Yang, X.}, \bibinfo{author}{Qin, Q.}, \bibinfo{author}{Yésou, H.}, \bibinfo{author}{Ledauphin, T.}, \bibinfo{author}{Koehl, M.}, \bibinfo{author}{Grussenmeyer, P.}, \bibinfo{author}{Zhu, Z.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Monthly estimation of the surface water extent in {France} at a 10-m resolution using {Sentinel}-2 data}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment} \bibinfo{volume}{244}, \bibinfo{pages}{111803}.
+\newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0034425720301735}, \DOIprefix\doi{10.1016/j.rse.2020.111803}.
+%Type = Article
+\bibitem[{Zheng et~al.(2024)Zheng, Lin and Yin}]{zheng_shift_2024}
+\bibinfo{author}{Zheng, K.}, \bibinfo{author}{Lin, P.}, \bibinfo{author}{Yin, Z.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{{SHIFT}: a spatial-heterogeneity improvement in {DEM}-based mapping of global geomorphic floodplains}.
+\newblock \bibinfo{journal}{Earth System Science Data} \bibinfo{volume}{16}, \bibinfo{pages}{3873--3891}.
+\newblock \URLprefix \url{https://essd.copernicus.org/articles/16/3873/2024/}, \DOIprefix\doi{10.5194/essd-16-3873-2024}. \bibinfo{note}{publisher: Copernicus GmbH}.
+%Type = Article
+\bibitem[{Zomer et~al.(2022)Zomer, Xu and Trabucco}]{zomer_version_2022}
+\bibinfo{author}{Zomer, R.J.}, \bibinfo{author}{Xu, J.}, \bibinfo{author}{Trabucco, A.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Version 3 of the {Global} {Aridity} {Index} and {Potential} {Evapotranspiration} {Database}}.
+\newblock \bibinfo{journal}{Scientific Data} \bibinfo{volume}{9}, \bibinfo{pages}{1--15}.
+\newblock \URLprefix \url{https://www.nature.com/articles/s41597-022-01493-1}, \DOIprefix\doi{10.1038/s41597-022-01493-1}. \bibinfo{note}{number: 1 Publisher: Nature Publishing Group}.
+
+\end{thebibliography}
