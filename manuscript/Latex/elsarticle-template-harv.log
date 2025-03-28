@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  25 MAR 2025 17:14
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  26 MAR 2025 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -513,12 +513,23 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 77
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
+Package natbib Warning: Citation `reynaud_global_2017' on page 1 undefined on input line 88.
+
+
+
 [1
 
 
 ]
 
 [2]
+
+Package natbib Warning: Citation `li_automatic_2021' on page 3 undefined on input line 98.
+
+
+Package natbib Warning: Citation `manocha_mapping_2023' on page 3 undefined on input line 98.
+
+
 
 [3]
 File: figure/Figure1_flowchart.pdf Graphic file (type pdf)
@@ -535,33 +546,35 @@ File: figure/Figure2_sample_istribution.eps Graphic file (type eps)
 <figure/Figure2_sample_istribution.eps>
 
 
-[6]
-
-[7]
-
-Package natbib Warning: Citation `wang_surface_2025' on page 8 undefined on input line 149.
-
-File: figure/Figure3 River mask.png Graphic file (type bmp)
-<figure/Figure3 River mask.png>
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
+[6]
+
+[7]
+
+Package natbib Warning: Citation `wang_surface_2025' on page 8 undefined on input line 151.
+
+
+
 [8]
+File: figure/Figure3 River mask.png Graphic file (type bmp)
+<figure/Figure3 River mask.png>
+
 
 [9]
 File: figure/Figure4 GLAKES flood mask.png Graphic file (type bmp)
 <figure/Figure4 GLAKES flood mask.png>
 
-Overfull \hbox (13.8903pt too wide) in paragraph at lines 173--174
+Overfull \hbox (13.8903pt too wide) in paragraph at lines 175--176
 []\T1/lmr/m/n/12 Finally, nat-u-ral lakes larger than 1 km$[]$ and all reser-voirs from the floodplain-
  []
 
 
 
 [10]
-Overfull \hbox (2.07422pt too wide) in paragraph at lines 188--200
+Overfull \hbox (2.07422pt too wide) in paragraph at lines 190--202
  [][] 
  []
 
@@ -572,38 +585,35 @@ Missing character: There is no – ("2013) in font ec-lmr12!
 File: figure/Figure5_validation_2.eps Graphic file (type eps)
 <figure/Figure5_validation_2.eps>
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Missing character: There is no – ("2013) in font ec-lmr12!
 Missing character: There is no – ("2013) in font ec-lmr12!
+Missing character: There is no – ("2013) in font ec-lmr12!
+File: figure/Figure6 global lake distribution.png Graphic file (type bmp)
+<figure/Figure6 global lake distribution.png>
+Missing character: There is no – ("2013) in font ec-lmr10!
+Missing character: There is no – ("2013) in font ec-lmr10!
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Missing character: There is no – ("2013) in font ec-lmr12!
 
 
 [12]
-File: figure/Figure6 global lake distribution.png Graphic file (type bmp)
-<figure/Figure6 global lake distribution.png>
-
-Missing character: There is no – ("2013) in font ec-lmr10!
-Missing character: There is no – ("2013) in font ec-lmr10!
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Missing character: There is no – ("2013) in font ec-lmr12!
-
 
 [13]
+
+[14]
 File: figure/Figure7 comparison of three database.png Graphic file (type bmp)
 <figure/Figure7 comparison of three database.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: figure/Figure8 three_dataset_compare.png Graphic file (type bmp)
 <figure/Figure8 three_dataset_compare.png>
 
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-
-[14]
 File: figure/Figure9.png Graphic file (type bmp)
 <figure/Figure9.png>
 
@@ -684,16 +694,20 @@ Package natbib Warning: There were undefined citations.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `elsarticle-template-harv.out' has not changed.
 (rerunfilecheck)             Checksum: 86A558E83CAB1D145B62075844404A2A;1883.
  ) 
 Here is how much of TeX's memory you used:
  12725 strings out of 473832
  200972 string characters out of 5733158
- 591663 words of memory out of 5000000
+ 591661 words of memory out of 5000000
  35607 multiletter control sequences out of 15000+600000
  606296 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,9n,79p,1924b,484s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,9n,79p,2259b,482s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on elsarticle-template-harv.pdf (22 pages).
