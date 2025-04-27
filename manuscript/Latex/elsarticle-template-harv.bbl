@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{33}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -18,29 +18,52 @@
 \newblock \bibinfo{journal}{Science} \bibinfo{volume}{361}, \bibinfo{pages}{585--588}.
 \newblock \URLprefix \url{https://www.science.org/doi/10.1126/science.aat0636}, \DOIprefix\doi{10.1126/science.aat0636}.
 %Type = Article
-\bibitem[{Brandt et~al.(2020)Brandt, Tucker, Kariryaa, Rasmussen, Abel, Small, Chave, Rasmussen, Hiernaux, Diouf, Kergoat, Mertz, Igel, Gieseke, Schöning, Li, Melocik, Meyer, Sinno, Romero, Glennie, Montagu, Dendoncker and Fensholt}]{brandt_unexpectedly_2020}
-\bibinfo{author}{Brandt, M.}, \bibinfo{author}{Tucker, C.J.}, \bibinfo{author}{Kariryaa, A.}, \bibinfo{author}{Rasmussen, K.}, \bibinfo{author}{Abel, C.}, \bibinfo{author}{Small, J.}, \bibinfo{author}{Chave, J.}, \bibinfo{author}{Rasmussen, L.V.}, \bibinfo{author}{Hiernaux, P.}, \bibinfo{author}{Diouf, A.A.}, \bibinfo{author}{Kergoat, L.}, \bibinfo{author}{Mertz, O.}, \bibinfo{author}{Igel, C.}, \bibinfo{author}{Gieseke, F.}, \bibinfo{author}{Schöning, J.}, \bibinfo{author}{Li, S.}, \bibinfo{author}{Melocik, K.}, \bibinfo{author}{Meyer, J.}, \bibinfo{author}{Sinno, S.}, \bibinfo{author}{Romero, E.}, \bibinfo{author}{Glennie, E.}, \bibinfo{author}{Montagu, A.}, \bibinfo{author}{Dendoncker, M.}, \bibinfo{author}{Fensholt, R.}, \bibinfo{year}{2020}.
-\newblock \bibinfo{title}{An unexpectedly large count of trees in the {West} {African} {Sahara} and {Sahel}}.
-\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{587}, \bibinfo{pages}{78--82}.
-\newblock \URLprefix \url{https://www.nature.com/articles/s41586-020-2824-5}, \DOIprefix\doi{10.1038/s41586-020-2824-5}.
-%Type = Article
 \bibitem[{Goodchild(2007)}]{goodchild_citizens_2007}
 \bibinfo{author}{Goodchild, M.F.}, \bibinfo{year}{2007}.
 \newblock \bibinfo{title}{Citizens as sensors: the world of volunteered geography}.
 \newblock \bibinfo{journal}{GeoJournal} \bibinfo{volume}{69}, \bibinfo{pages}{211--221}.
 \newblock \URLprefix \url{https://doi.org/10.1007/s10708-007-9111-y}, \DOIprefix\doi{10.1007/s10708-007-9111-y}.
 %Type = Article
+\bibitem[{Gorelick et~al.(2017)Gorelick, Hancher, Dixon, Ilyushchenko, Thau and Moore}]{gorelick_google_2017}
+\bibinfo{author}{Gorelick, N.}, \bibinfo{author}{Hancher, M.}, \bibinfo{author}{Dixon, M.}, \bibinfo{author}{Ilyushchenko, S.}, \bibinfo{author}{Thau, D.}, \bibinfo{author}{Moore, R.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Google {Earth} {Engine}: {Planetary}-scale geospatial analysis for everyone}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment} \bibinfo{volume}{202}, \bibinfo{pages}{18--27}.
+\newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0034425717302900}, \DOIprefix\doi{10.1016/j.rse.2017.06.031}.
+%Type = Article
 \bibitem[{Holgerson and Raymond(2016)}]{holgerson_large_2016}
 \bibinfo{author}{Holgerson, M.A.}, \bibinfo{author}{Raymond, P.A.}, \bibinfo{year}{2016}.
 \newblock \bibinfo{title}{Large contribution to inland water {CO2} and {CH4} emissions from very small ponds}.
 \newblock \bibinfo{journal}{Nature Geoscience} \bibinfo{volume}{9}, \bibinfo{pages}{222--226}.
 \newblock \URLprefix \url{https://www.nature.com/articles/ngeo2654}, \DOIprefix\doi{10.1038/ngeo2654}. \bibinfo{note}{number: 3 Publisher: Nature Publishing Group}.
+%Type = Misc
+\bibitem[{Ioffe and Szegedy(2015)}]{ioffe_batch_2015}
+\bibinfo{author}{Ioffe, S.}, \bibinfo{author}{Szegedy, C.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Batch {Normalization}: {Accelerating} {Deep} {Network} {Training} by {Reducing} {Internal} {Covariate} {Shift}}.
+\newblock \URLprefix \url{http://arxiv.org/abs/1502.03167}, \DOIprefix\doi{10.48550/arXiv.1502.03167}. \bibinfo{note}{arXiv:1502.03167 [cs]}.
+%Type = Article
+\bibitem[{LeCun et~al.(2015)LeCun, Bengio and Hinton}]{lecun_deep_2015}
+\bibinfo{author}{LeCun, Y.}, \bibinfo{author}{Bengio, Y.}, \bibinfo{author}{Hinton, G.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Deep learning}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{521}, \bibinfo{pages}{436--444}.
+\newblock \URLprefix \url{https://www.nature.com/articles/nature14539}, \DOIprefix\doi{10.1038/nature14539}. \bibinfo{note}{publisher: Nature Publishing Group}.
 %Type = Article
 \bibitem[{Lehner and Döll(2004)}]{lehner_development_2004}
 \bibinfo{author}{Lehner, B.}, \bibinfo{author}{Döll, P.}, \bibinfo{year}{2004}.
 \newblock \bibinfo{title}{Development and validation of a global database of lakes, reservoirs and wetlands}.
 \newblock \bibinfo{journal}{Journal of Hydrology} \bibinfo{volume}{296}, \bibinfo{pages}{1--22}.
 \newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0022169404001404}, \DOIprefix\doi{10.1016/j.jhydrol.2004.03.028}.
+%Type = Article
+\bibitem[{Li et~al.(2021)Li, Zech, Ludwig, Fendrich, Shapiro, Schultz and Zipf}]{li_automatic_2021}
+\bibinfo{author}{Li, H.}, \bibinfo{author}{Zech, J.}, \bibinfo{author}{Ludwig, C.}, \bibinfo{author}{Fendrich, S.}, \bibinfo{author}{Shapiro, A.}, \bibinfo{author}{Schultz, M.}, \bibinfo{author}{Zipf, A.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Automatic mapping of national surface water with {OpenStreetMap} and {Sentinel}-2 {MSI} data using deep learning}.
+\newblock \bibinfo{journal}{International Journal of Applied Earth Observation and Geoinformation} \bibinfo{volume}{104}, \bibinfo{pages}{102571}.
+\newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0303243421002786}, \DOIprefix\doi{10.1016/j.jag.2021.102571}.
+%Type = Article
+\bibitem[{Manocha et~al.(2023)Manocha, Afaq and Bhatia}]{manocha_mapping_2023}
+\bibinfo{author}{Manocha, A.}, \bibinfo{author}{Afaq, Y.}, \bibinfo{author}{Bhatia, M.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Mapping of water bodies from sentinel-2 images using deep learning-based feature fusion approach}.
+\newblock \bibinfo{journal}{Neural Computing and Applications} \bibinfo{volume}{35}, \bibinfo{pages}{9167--9179}.
+\newblock \URLprefix \url{https://link.springer.com/article/10.1007/s00521-022-08177-2}, \DOIprefix\doi{10.1007/s00521-022-08177-2}. \bibinfo{note}{company: Springer Distributor: Springer Institution: Springer Label: Springer Number: 12 Publisher: Springer London}.
 %Type = Article
 \bibitem[{McFEETERS(1996)}]{mcfeeters_use_1996}
 \bibinfo{author}{McFEETERS, S.K.}, \bibinfo{year}{1996}.
@@ -65,11 +88,29 @@
 \newblock \bibinfo{title}{Mapping global lake dynamics reveals the emerging roles of small lakes}.
 \newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{13}, \bibinfo{pages}{5777}.
 \newblock \URLprefix \url{https://www.nature.com/articles/s41467-022-33239-3}, \DOIprefix\doi{10.1038/s41467-022-33239-3}. \bibinfo{note}{number: 1 Publisher: Nature Publishing Group}.
+%Type = Article
+\bibitem[{Reynaud and Lanzanova(2017)}]{reynaud_global_2017}
+\bibinfo{author}{Reynaud, A.}, \bibinfo{author}{Lanzanova, D.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{A {Global} {Meta}-{Analysis} of the {Value} of {Ecosystem} {Services} {Provided} by {Lakes}}.
+\newblock \bibinfo{journal}{Ecological Economics} \bibinfo{volume}{137}, \bibinfo{pages}{184--194}.
+\newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0921800916309168}, \DOIprefix\doi{10.1016/j.ecolecon.2017.03.001}.
 %Type = Misc
 \bibitem[{Ronneberger et~al.(2015)Ronneberger, Fischer and Brox}]{ronneberger_u-net_2015}
 \bibinfo{author}{Ronneberger, O.}, \bibinfo{author}{Fischer, P.}, \bibinfo{author}{Brox, T.}, \bibinfo{year}{2015}.
 \newblock \bibinfo{title}{U-{Net}: {Convolutional} {Networks} for {Biomedical} {Image} {Segmentation}}.
 \newblock \URLprefix \url{http://arxiv.org/abs/1505.04597}, \DOIprefix\doi{10.48550/arXiv.1505.04597}. \bibinfo{note}{arXiv:1505.04597 [cs]}.
+%Type = Article
+\bibitem[{Rumelhart et~al.(1986)Rumelhart, Hinton and Williams}]{rumelhart_learning_1986}
+\bibinfo{author}{Rumelhart, D.E.}, \bibinfo{author}{Hinton, G.E.}, \bibinfo{author}{Williams, R.J.}, \bibinfo{year}{1986}.
+\newblock \bibinfo{title}{Learning representations by back-propagating errors}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{323}, \bibinfo{pages}{533--536}.
+\newblock \URLprefix \url{https://www.nature.com/articles/323533a0}, \DOIprefix\doi{10.1038/323533a0}. \bibinfo{note}{publisher: Nature Publishing Group}.
+%Type = Article
+\bibitem[{Shelhamer et~al.(2017)Shelhamer, Long and Darrell}]{shelhamer_fully_2017}
+\bibinfo{author}{Shelhamer, E.}, \bibinfo{author}{Long, J.}, \bibinfo{author}{Darrell, T.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Fully {Convolutional} {Networks} for {Semantic} {Segmentation}}.
+\newblock \bibinfo{journal}{IEEE Transactions on Pattern Analysis and Machine Intelligence} \bibinfo{volume}{39}, \bibinfo{pages}{640--651}.
+\newblock \URLprefix \url{http://ieeexplore.ieee.org/document/7478072/}, \DOIprefix\doi{10.1109/TPAMI.2016.2572683}.
 %Type = Article
 \bibitem[{Sheng et~al.(2016)Sheng, Song, Wang, Lyons, Knox, Cox and Gao}]{sheng_representative_2016}
 \bibinfo{author}{Sheng, Y.}, \bibinfo{author}{Song, C.}, \bibinfo{author}{Wang, J.}, \bibinfo{author}{Lyons, E.A.}, \bibinfo{author}{Knox, B.R.}, \bibinfo{author}{Cox, J.S.}, \bibinfo{author}{Gao, F.}, \bibinfo{year}{2016}.
@@ -77,17 +118,46 @@
 \newblock \bibinfo{journal}{Remote Sensing of Environment} \bibinfo{volume}{185}, \bibinfo{pages}{129--141}.
 \newblock \URLprefix \url{https://linkinghub.elsevier.com/retrieve/pii/S0034425715302649}, \DOIprefix\doi{10.1016/j.rse.2015.12.041}.
 %Type = Article
+\bibitem[{Shi et~al.(2014)Shi, Wang and Guo}]{shi_longterm_2014}
+\bibinfo{author}{Shi, W.}, \bibinfo{author}{Wang, M.}, \bibinfo{author}{Guo, W.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Long‐term hydrological changes of the {Aral} {Sea} observed by satellites}.
+\newblock \bibinfo{journal}{Journal of Geophysical Research: Oceans} \bibinfo{volume}{119}.
+\newblock \URLprefix \url{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2014JC009988}, \DOIprefix\doi{10.1002/2014JC009988}.
+%Type = Article
+\bibitem[{Shugar et~al.(2020)Shugar, Burr, Haritashya, Kargel, Watson, Kennedy, Bevington, Betts, Harrison and Strattman}]{shugar_rapid_2020}
+\bibinfo{author}{Shugar, D.H.}, \bibinfo{author}{Burr, A.}, \bibinfo{author}{Haritashya, U.K.}, \bibinfo{author}{Kargel, J.S.}, \bibinfo{author}{Watson, C.S.}, \bibinfo{author}{Kennedy, M.C.}, \bibinfo{author}{Bevington, A.R.}, \bibinfo{author}{Betts, R.A.}, \bibinfo{author}{Harrison, S.}, \bibinfo{author}{Strattman, K.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Rapid worldwide growth of glacial lakes since 1990}.
+\newblock \bibinfo{journal}{Nature Climate Change} \bibinfo{volume}{10}, \bibinfo{pages}{939--945}.
+\newblock \URLprefix \url{https://www.nature.com/articles/s41558-020-0855-4}, \DOIprefix\doi{10.1038/s41558-020-0855-4}. \bibinfo{note}{publisher: Nature Publishing Group}.
+%Type = Article
+\bibitem[{Siddique et~al.(2021)Siddique, Paheding, Elkin and Devabhaktuni}]{siddique_u-net_2021}
+\bibinfo{author}{Siddique, N.}, \bibinfo{author}{Paheding, S.}, \bibinfo{author}{Elkin, C.P.}, \bibinfo{author}{Devabhaktuni, V.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{U-{Net} and {Its} {Variants} for {Medical} {Image} {Segmentation}: {A} {Review} of {Theory} and {Applications}}.
+\newblock \bibinfo{journal}{IEEE Access} \bibinfo{volume}{9}, \bibinfo{pages}{82031--82057}.
+\newblock \URLprefix \url{https://ieeexplore.ieee.org/document/9446143/?arnumber=9446143}, \DOIprefix\doi{10.1109/ACCESS.2021.3086020}. \bibinfo{note}{conference Name: IEEE Access}.
+%Type = Article
 \bibitem[{Song et~al.(2022)Song, Jiang, Fan and Li}]{song_high-resolution_2022}
 \bibinfo{author}{Song, C.}, \bibinfo{author}{Jiang, X.}, \bibinfo{author}{Fan, C.}, \bibinfo{author}{Li, L.}, \bibinfo{year}{2022}.
 \newblock \bibinfo{title}{High-resolution circa-2020 map of urban lakes in {China}}.
 \newblock \bibinfo{journal}{Scientific Data} \bibinfo{volume}{9}, \bibinfo{pages}{747}.
 \newblock \URLprefix \url{https://www.nature.com/articles/s41597-022-01874-6}, \DOIprefix\doi{10.1038/s41597-022-01874-6}.
+%Type = Inproceedings
+\bibitem[{Sudre et~al.(2017)Sudre, Li, Vercauteren, Ourselin and Jorge~Cardoso}]{sudre_generalised_2017}
+\bibinfo{author}{Sudre, C.H.}, \bibinfo{author}{Li, W.}, \bibinfo{author}{Vercauteren, T.}, \bibinfo{author}{Ourselin, S.}, \bibinfo{author}{Jorge~Cardoso, M.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Generalised {Dice} {Overlap} as a {Deep} {Learning} {Loss} {Function} for {Highly} {Unbalanced} {Segmentations}}, in: \bibinfo{editor}{Cardoso, M.J.}, \bibinfo{editor}{Arbel, T.}, \bibinfo{editor}{Carneiro, G.}, \bibinfo{editor}{Syeda-Mahmood, T.}, \bibinfo{editor}{Tavares, J.M.R.}, \bibinfo{editor}{Moradi, M.}, \bibinfo{editor}{Bradley, A.}, \bibinfo{editor}{Greenspan, H.}, \bibinfo{editor}{Papa, J.P.}, \bibinfo{editor}{Madabhushi, A.}, \bibinfo{editor}{Nascimento, J.C.}, \bibinfo{editor}{Cardoso, J.S.}, \bibinfo{editor}{Belagiannis, V.}, \bibinfo{editor}{Lu, Z.} (Eds.), \bibinfo{booktitle}{Deep {Learning} in {Medical} {Image} {Analysis} and {Multimodal} {Learning} for {Clinical} {Decision} {Support}}, \bibinfo{publisher}{Springer International Publishing}, \bibinfo{address}{Cham}. pp. \bibinfo{pages}{240--248}.
+\newblock \DOIprefix\doi{10.1007/978-3-319-67558-9_28}.
 %Type = Article
 \bibitem[{Verpoorter et~al.(2014)Verpoorter, Kutser, Seekell and Tranvik}]{verpoorter_global_2014}
 \bibinfo{author}{Verpoorter, C.}, \bibinfo{author}{Kutser, T.}, \bibinfo{author}{Seekell, D.A.}, \bibinfo{author}{Tranvik, L.J.}, \bibinfo{year}{2014}.
 \newblock \bibinfo{title}{A global inventory of lakes based on high-resolution satellite imagery}.
 \newblock \bibinfo{journal}{Geophysical Research Letters} \bibinfo{volume}{41}, \bibinfo{pages}{6396--6402}.
 \newblock \URLprefix \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/2014GL060641}, \DOIprefix\doi{10.1002/2014GL060641}. \bibinfo{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/2014GL060641}.
+%Type = Article
+\bibitem[{Wang et~al.(2025)Wang, Pottier, Cazals, Battude, Sheng, Song, Sikder, Yang, Ke, Delhoume, Gosset, Oliveira, Grippa, Girard, Allen, Xu, Zhu, Biancamaria, Smith, Crétaux and Pavelsky}]{wang_surface_2025}
+\bibinfo{author}{Wang, J.}, \bibinfo{author}{Pottier, C.}, \bibinfo{author}{Cazals, C.}, \bibinfo{author}{Battude, M.}, \bibinfo{author}{Sheng, Y.}, \bibinfo{author}{Song, C.}, \bibinfo{author}{Sikder, M.S.}, \bibinfo{author}{Yang, X.}, \bibinfo{author}{Ke, L.}, \bibinfo{author}{Delhoume, M.}, \bibinfo{author}{Gosset, M.}, \bibinfo{author}{Oliveira, R.R.A.}, \bibinfo{author}{Grippa, M.}, \bibinfo{author}{Girard, F.}, \bibinfo{author}{Allen, G.H.}, \bibinfo{author}{Xu, X.}, \bibinfo{author}{Zhu, X.}, \bibinfo{author}{Biancamaria, S.}, \bibinfo{author}{Smith, L.C.}, \bibinfo{author}{Crétaux, J.F.}, \bibinfo{author}{Pavelsky, T.M.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{The {Surface} {Water} and {Ocean} {Topography} {Mission} ({SWOT}) {Prior} {Lake} {Database} ({PLD}): {Lake} {Mask} and {Operational} {Auxiliaries}}.
+\newblock \bibinfo{journal}{Water Resources Research} \bibinfo{volume}{61}, \bibinfo{pages}{e2023WR036896}.
+\newblock \URLprefix \url{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023WR036896}, \DOIprefix\doi{10.1029/2023WR036896}.
 %Type = Article
 \bibitem[{Wang et~al.(2022)Wang, Zhang, Yang, Huang, Su, Liu, Liu and Zhang}]{wang_global_2022}
 \bibinfo{author}{Wang, Z.}, \bibinfo{author}{Zhang, J.}, \bibinfo{author}{Yang, X.}, \bibinfo{author}{Huang, C.}, \bibinfo{author}{Su, F.}, \bibinfo{author}{Liu, X.}, \bibinfo{author}{Liu, Y.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{year}{2022}.
@@ -101,11 +171,28 @@
 \newblock \bibinfo{journal}{Limnology and Oceanography} \bibinfo{volume}{54}, \bibinfo{pages}{2273--2282}.
 \newblock \URLprefix \url{https://onlinelibrary.wiley.com/doi/abs/10.4319/lo.2009.54.6_part_2.2273}, \DOIprefix\doi{10.4319/lo.2009.54.6_part_2.2273}. \bibinfo{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.4319/lo.2009.54.6\_part\_2.2273}.
 %Type = Article
+\bibitem[{Wurtsbaugh et~al.(2017)Wurtsbaugh, Miller, Null, DeRose, Wilcock, Hahnenberger, Howe and Moore}]{wurtsbaugh_decline_2017}
+\bibinfo{author}{Wurtsbaugh, W.A.}, \bibinfo{author}{Miller, C.}, \bibinfo{author}{Null, S.E.}, \bibinfo{author}{DeRose, R.J.}, \bibinfo{author}{Wilcock, P.}, \bibinfo{author}{Hahnenberger, M.}, \bibinfo{author}{Howe, F.}, \bibinfo{author}{Moore, J.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Decline of the world's saline lakes}.
+\newblock \bibinfo{journal}{Nature Geoscience} \bibinfo{volume}{10}, \bibinfo{pages}{816--821}.
+\newblock \URLprefix \url{https://www.nature.com/articles/ngeo3052}, \DOIprefix\doi{10.1038/ngeo3052}. \bibinfo{note}{publisher: Nature Publishing Group}.
+%Type = Article
+\bibitem[{Xu(2006)}]{xu_modification_2006}
+\bibinfo{author}{Xu, H.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Modification of normalised difference water index ({NDWI}) to enhance open water features in remotely sensed imagery}.
+\newblock \bibinfo{journal}{International Journal of Remote Sensing} \bibinfo{volume}{27}, \bibinfo{pages}{3025--3033}.
+\newblock \URLprefix \url{https://www.tandfonline.com/doi/full/10.1080/01431160600589179}, \DOIprefix\doi{10.1080/01431160600589179}.
+%Type = Article
 \bibitem[{Yang et~al.(2020)Yang, Qin, Yésou, Ledauphin, Koehl, Grussenmeyer and Zhu}]{yang_monthly_2020}
 \bibinfo{author}{Yang, X.}, \bibinfo{author}{Qin, Q.}, \bibinfo{author}{Yésou, H.}, \bibinfo{author}{Ledauphin, T.}, \bibinfo{author}{Koehl, M.}, \bibinfo{author}{Grussenmeyer, P.}, \bibinfo{author}{Zhu, Z.}, \bibinfo{year}{2020}.
 \newblock \bibinfo{title}{Monthly estimation of the surface water extent in {France} at a 10-m resolution using {Sentinel}-2 data}.
 \newblock \bibinfo{journal}{Remote Sensing of Environment} \bibinfo{volume}{244}, \bibinfo{pages}{111803}.
 \newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0034425720301735}, \DOIprefix\doi{10.1016/j.rse.2020.111803}.
+%Type = Misc
+\bibitem[{Zeiler(2012)}]{zeiler_adadelta_2012}
+\bibinfo{author}{Zeiler, M.D.}, \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{{ADADELTA}: {An} {Adaptive} {Learning} {Rate} {Method}}.
+\newblock \URLprefix \url{http://arxiv.org/abs/1212.5701}, \DOIprefix\doi{10.48550/arXiv.1212.5701}. \bibinfo{note}{arXiv:1212.5701 [cs]}.
 %Type = Article
 \bibitem[{Zheng et~al.(2024)Zheng, Lin and Yin}]{zheng_shift_2024}
 \bibinfo{author}{Zheng, K.}, \bibinfo{author}{Lin, P.}, \bibinfo{author}{Yin, Z.}, \bibinfo{year}{2024}.

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  26 MAR 2025 16:40
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  7 APR 2025 08:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -251,6 +251,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box68
 \@float@everytoks=\toks29
 \@floatcapt=\box69
+) (c:/texlive/2025/texmf-dist/tex/latex/gensymb/gensymb.sty
+Package: gensymb 2022/10/17 v1.0.2 (KJH)
 ) (c:/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
  (c:/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
@@ -376,26 +378,26 @@ LaTeX Info: Redefining \\ on input line 3187.
 ) (./elsarticle-template-harv.aux)
 \openout1 = `elsarticle-template-harv.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -404,116 +406,127 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
- (c:/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+LaTeX Info: Redefining \celsius on input line 32.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 32.
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 32.
+Package gensymb Info: Using \Omega for \ohm on input line 32.
+
+Package gensymb Warning: Not defining \micro.
+
+(c:/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2024/06/23 v1.3e Standard LaTeX Color (DPC)
  (c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: xetex.def on input line 149.
  (c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 31.
+Package hyperref Info: Link coloring ON on input line 32.
  (./elsarticle-template-harv.out) (./elsarticle-template-harv.out)
 \@outlinefile=\write4
 \openout4 = `elsarticle-template-harv.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 62.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 77.
+(hyperref)                removing `\<let>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\comma' on input line 77.
+(hyperref)                removing `\comma' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 77.
+(hyperref)                removing `\<def>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@fnmark' on input line 77.
+(hyperref)                removing `\@fnmark' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 77.
+(hyperref)                removing `\<let>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\comma' on input line 77.
+(hyperref)                removing `\comma' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 77.
+(hyperref)                removing `\<def>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@fnmark' on input line 77.
+(hyperref)                removing `\@fnmark' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 77.
+(hyperref)                removing `\<let>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\comma' on input line 77.
+(hyperref)                removing `\comma' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 77.
+(hyperref)                removing `\<def>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@fnmark' on input line 77.
+(hyperref)                removing `\@fnmark' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 77.
+(hyperref)                removing `\<def>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\cnotenum' on input line 77.
+(hyperref)                removing `\cnotenum' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 77.
+(hyperref)                removing `\<def>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@corref' on input line 77.
+(hyperref)                removing `\@corref' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 77.
+(hyperref)                removing `\<let>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\comma' on input line 77.
+(hyperref)                removing `\comma' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 77.
+(hyperref)                removing `\<def>-command' on input line 78.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@fnmark' on input line 77.
+(hyperref)                removing `\@fnmark' on input line 78.
 
 [1
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 77.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 78.
  (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-Package natbib Warning: Citation `reynaud_global_2017' on page 1 undefined on input line 88.
+Package natbib Warning: Citation `' on page 1 undefined on input line 89.
 
 
 
@@ -524,16 +537,14 @@ Package natbib Warning: Citation `reynaud_global_2017' on page 1 undefined on in
 
 [2]
 
-Package natbib Warning: Citation `li_automatic_2021' on page 3 undefined on input line 98.
-
-
-Package natbib Warning: Citation `manocha_mapping_2023' on page 3 undefined on input line 98.
-
-
-
 [3]
+Missing character: There is no “ ("201C) in font ec-lmr12!
+Missing character: There is no ” ("201D) in font ec-lmr12!
 File: figure/Figure1_flowchart.pdf Graphic file (type pdf)
 <use figure/Figure1_flowchart.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 
 [4]
@@ -542,8 +553,8 @@ Missing character: There is no ” ("201D) in font ec-lmr12!
 
 
 [5]
-File: figure/Figure2_sample_istribution.eps Graphic file (type eps)
-<figure/Figure2_sample_istribution.eps>
+File: figure/Figure2_sample_istribution.png Graphic file (type bmp)
+<figure/Figure2_sample_istribution.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -554,45 +565,51 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7]
 
-Package natbib Warning: Citation `wang_surface_2025' on page 8 undefined on input line 151.
-
-
-
 [8]
 File: figure/Figure3 River mask.png Graphic file (type bmp)
 <figure/Figure3 River mask.png>
 
 
-[9]
-File: figure/Figure4 GLAKES flood mask.png Graphic file (type bmp)
-<figure/Figure4 GLAKES flood mask.png>
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-Overfull \hbox (13.8903pt too wide) in paragraph at lines 175--176
+
+
+[9]
+Overfull \hbox (13.8903pt too wide) in paragraph at lines 186--187
 []\T1/lmr/m/n/12 Finally, nat-u-ral lakes larger than 1 km$[]$ and all reser-voirs from the floodplain-
  []
 
+File: figure/Figure4 GLAKES flood mask.png Graphic file (type bmp)
+<figure/Figure4 GLAKES flood mask.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Missing character: There is no ’ ("2019) in font ec-lmr12!
 
 
 [10]
-Overfull \hbox (2.07422pt too wide) in paragraph at lines 190--202
+Overfull \hbox (2.07422pt too wide) in paragraph at lines 207--219
  [][] 
  []
 
-Missing character: There is no – ("2013) in font ec-lmr12!
-
-
-[11]
-File: figure/Figure5_validation_2.eps Graphic file (type eps)
-<figure/Figure5_validation_2.eps>
-
+File: figure/Figure5_regional_performance.png Graphic file (type bmp)
+<figure/Figure5_regional_performance.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 Missing character: There is no – ("2013) in font ec-lmr12!
 Missing character: There is no – ("2013) in font ec-lmr12!
-Missing character: There is no – ("2013) in font ec-lmr12!
-File: figure/Figure6 global lake distribution.png Graphic file (type bmp)
-<figure/Figure6 global lake distribution.png>
+File: figure/Figure6_validation.png Graphic file (type bmp)
+<figure/Figure6_validation.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[11]
+File: figure/Figure7 global lake distribution.png Graphic file (type bmp)
+<figure/Figure7 global lake distribution.png>
+
 Missing character: There is no – ("2013) in font ec-lmr10!
 Missing character: There is no – ("2013) in font ec-lmr10!
 
@@ -602,94 +619,151 @@ Missing character: There is no – ("2013) in font ec-lmr12!
 
 
 [12]
-
-[13]
-
-[14]
-File: figure/Figure7 comparison of three database.png Graphic file (type bmp)
-<figure/Figure7 comparison of three database.png>
-File: figure/Figure8 three_dataset_compare.png Graphic file (type bmp)
-<figure/Figure8 three_dataset_compare.png>
+File: figure/Figure8 count and area difference of three databases.png Graphic file (type bmp)
+<figure/Figure8 count and area difference of three databases.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: figure/Figure9.png Graphic file (type bmp)
-<figure/Figure9.png>
+File: figure/Figure9 Regional difference.png Graphic file (type bmp)
+<figure/Figure9 Regional difference.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: figure/Figure10.png Graphic file (type bmp)
+<figure/Figure10.png>
+
+
+[13]
+
+[14] (./elsarticle-template-harv.bbl
+Underfull \hbox (badness 1194) in paragraph at lines 28--33
+[]\T1/lmr/m/n/12 Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D.,
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 28--33
+\T1/lmr/m/n/12 Moore, R., 2017.  Google Earth En-gine: Planetary-scale geospa-
+ []
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 28--33
+\T1/lmr/m/n/12 27.  URL: [][]$\T1/lmtt/m/n/12 https : / / www . sciencedirect . com / science / article / pii /
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 40--44
+[]\T1/lmr/m/n/12 Ioffe, S., Szegedy, C., 2015.  Batch Nor-mal-iza-tion: Ac-cel-er-at-ing
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 57--62
+\T1/lmr/m/n/12 102571.  URL: [][]$\T1/lmtt/m/n/12 https : / / www . sciencedirect . com / science / article /
+ []
+
 
 
 [15]
+Underfull \hbox (badness 10000) in paragraph at lines 63--68
+[][]$\T1/lmtt/m/n/12 https : / / link . springer . com / article / 10 . 1007 / s00521-[]022-[]08177-[]2$[][]\T1/lmr/m/n/12 ,
+ []
 
-[16] (./elsarticle-template-harv.bbl
+
+Underfull \hbox (badness 4699) in paragraph at lines 63--68
+\T1/lmr/m/n/12 doi:[][]$\T1/lmtt/m/n/12 10 . 1007 / s00521-[]022-[]08177-[]2$[][]\T1/lmr/m/n/12 . com-pany: Springer Dis-trib-u-tor:
+ []
+
+
+
+[16]
+Missing character: There is no ‐ ("2010) in font ec-lmr12!
+
 
 [17]
-
-[18]
-Underfull \hbox (badness 4981) in paragraph at lines 81--86
+Underfull \hbox (badness 4981) in paragraph at lines 140--145
 []\T1/lmr/m/n/12 Song, C., Jiang, X., Fan, C., Li, L., 2022.  High-resolution
  []
 
 
-Underfull \hbox (badness 5022) in paragraph at lines 81--86
+Underfull \hbox (badness 5022) in paragraph at lines 140--145
 \T1/lmr/m/n/12 circa-2020 map of ur-ban lakes in China.  Sci-en-tific Data 9,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 151--156
 []\T1/lmr/m/n/12 Verpoorter, C., Kutser, T., Seekell, D.A., Tran-vik, L.J.,
  []
 
 
-Underfull \hbox (badness 6708) in paragraph at lines 87--92
+Underfull \hbox (badness 6708) in paragraph at lines 151--156
 \T1/lmr/m/n/12 2014.  A global in-ven-tory of lakes based on high-resolution
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 151--156
 \T1/lmr/m/n/12 satel-lite im-agery.  Geo-phys-i-cal Re-search Let-ters 41, 6396--
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 151--156
 \T1/lmr/m/n/12 6402.  URL: [][]$\T1/lmtt/m/n/12 https : / / onlinelibrary . wiley . com / doi / abs /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 151--156
 \T1/lmtt/m/n/12 10 . 1002 / 2014GL060641$[][]\T1/lmr/m/n/12 , doi:[][]$\T1/lmtt/m/n/12 10 . 1002 / 2014GL060641$[][]\T1/lmr/m/n/12 . _eprint:
  []
 
 
-Underfull \hbox (badness 2269) in paragraph at lines 99--104
+Underfull \hbox (badness 2269) in paragraph at lines 169--174
 \T1/lmr/m/n/12 and reser-voirs as sen-tinels, in-te-gra-tors, and reg-u-la-tors of cli-mate
  []
 
 
-Underfull \hbox (badness 4048) in paragraph at lines 99--104
+Underfull \hbox (badness 4048) in paragraph at lines 169--174
 \T1/lmr/m/n/12 change.  Lim-nol-ogy and Oceanog-ra-phy 54, 2273--2282.  URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--104
+Underfull \hbox (badness 10000) in paragraph at lines 169--174
 [][]$\T1/lmtt/m/n/12 https : / / onlinelibrary . wiley . com / doi / abs / 10 . 4319 / lo . 2009 .
  []
 
 
-Overfull \hbox (9.88466pt too wide) in paragraph at lines 99--104
+Overfull \hbox (9.88466pt too wide) in paragraph at lines 169--174
 \T1/lmr/m/n/12 https://onlinelibrary.wiley.com/doi/pdf/10.4319/lo.2009.54.6_part_2.2273. 
  []
 
 
 
-[19])
+[18]
+Underfull \hbox (badness 1735) in paragraph at lines 193--197
+\T1/lmr/m/n/12 URL: [][]$\T1/lmtt/m/n/12 http : / / arxiv . org / abs / 1212 . 5701$[][]\T1/lmr/m/n/12 , doi:[][]$\T1/lmtt/m/n/12 10 . 48550 / arXiv . 1212 .
+ []
+
+)
 
 Package natbib Warning: There were undefined citations.
 
 
 
+[19]
+
 [20]
 
-[21] (./elsarticle-template-harv.aux)
+[21]
+
+[22]
+
+[23]
+
+[24]
+
+[25]
+
+[26]
+
+[27] (./elsarticle-template-harv.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -702,12 +776,12 @@ Package rerunfilecheck Info: File `elsarticle-template-harv.out' has not changed
 (rerunfilecheck)             Checksum: 86A558E83CAB1D145B62075844404A2A;1883.
  ) 
 Here is how much of TeX's memory you used:
- 12725 strings out of 473832
- 200972 string characters out of 5733158
- 591661 words of memory out of 5000000
- 35607 multiletter control sequences out of 15000+600000
+ 12846 strings out of 473832
+ 203952 string characters out of 5733158
+ 601310 words of memory out of 5000000
+ 35724 multiletter control sequences out of 15000+600000
  606296 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,9n,79p,2259b,482s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,9n,79p,3011b,508s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on elsarticle-template-harv.pdf (22 pages).
+Output written on elsarticle-template-harv.pdf (28 pages).
